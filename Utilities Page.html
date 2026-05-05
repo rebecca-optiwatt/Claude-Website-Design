@@ -1,0 +1,1868 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DER Management Platform for Utilities — Optiwatt</title>
+<meta name="description" content="Optiwatt's DER management platform delivers grid-scale flexibility for utilities. 145,000+ devices, 4 GW dispatchable capacity, sub-50ms latency.">
+<style>
+/* =========================================================
+   Optiwatt Design System — Tokens
+   Source: Figma "Optiwatt — Design System"
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;700&display=swap");
+
+:root {
+  /* ---------- Color: Neutrals ---------- */
+  --ow-white:       #FFFFFF;
+  --ow-grey-100:    #F2F2F2;  /* surface tint */
+  --ow-grey-200:    #E5E5E5;  /* dividers, progress track */
+  --ow-grey-300:    #DADADA;
+  --ow-grey-400:    #B4B4B4;
+  --ow-grey-500:    #5D5D5D;  /* body text */
+  --ow-grey-900:    #343434;  /* headers, primary text */
+  --ow-black:       #000000;
+
+  /* ---------- Color: Brand Purple ---------- */
+  --ow-purple-100:  #FBF6FF;  /* tint surface */
+  --ow-purple-200:  #F1DBFF;
+  --ow-purple-300:  #E2C5FC;
+  --ow-purple-400:  #8E49CD;
+  --ow-purple-500:  #AF4BFB;  /* primary brand */
+  --ow-purple-600:  #8A38F5;  /* primary hover/stroke */
+  --ow-purple-700:  #4D24AD;  /* deep purple */
+  --ow-purple-800:  #271D69;  /* on-purple text */
+
+  /* ---------- Color: Blue (Link / AAA) ---------- */
+  --ow-blue-100:    #EBF0FF;
+  --ow-blue-200:    #ECF1FF;
+  --ow-blue-400:    #426FFB;
+  --ow-blue-500:    #3768FB;  /* AAA link */
+  --ow-blue-700:    #4540BD;
+
+  /* ---------- Color: Success ---------- */
+  --ow-green-100:   #E5FBEC;
+  --ow-green-500:   #00D73F;
+  --ow-green-600:   #00A331;
+  --ow-green-700:   #00AB32;  /* AA */
+  --ow-green-800:   #00922B;
+
+  /* ---------- Color: Warning ---------- */
+  --ow-orange-100:  #FFF0E7;
+  --ow-orange-500:  #FA650F;  /* AA */
+  --ow-yellow-500:  #FBD242;
+
+  /* ---------- Color: Error ---------- */
+  --ow-red-100:     #FCE6E6;
+  --ow-red-500:     #DD0303;
+
+  /* ---------- Color: Accent ---------- */
+  --ow-pink-500:    #FB42D2;
+
+  /* ---------- Semantic mappings ---------- */
+  --ow-bg:                 var(--ow-white);
+  --ow-bg-tint:            var(--ow-grey-100);
+  --ow-surface:            var(--ow-white);
+  --ow-surface-purple:     var(--ow-purple-100);
+  --ow-text:               var(--ow-grey-900);
+  --ow-text-secondary:     var(--ow-grey-500);
+  --ow-text-tertiary:      var(--ow-grey-400);
+  --ow-text-on-primary:    var(--ow-white);
+  --ow-text-link:          var(--ow-blue-500);
+  --ow-divider:            var(--ow-grey-200);
+  --ow-border:             var(--ow-grey-200);
+  --ow-primary:            var(--ow-purple-500);
+  --ow-primary-strong:     var(--ow-purple-600);
+  --ow-positive:           var(--ow-green-700);
+  --ow-positive-strong:    var(--ow-green-800);
+  --ow-positive-tint:      var(--ow-green-100);
+  --ow-warning:            var(--ow-orange-500);
+  --ow-warning-tint:       var(--ow-orange-100);
+  --ow-error:              var(--ow-red-500);
+  --ow-error-tint:         var(--ow-red-100);
+
+  /* ---------- Typography ---------- */
+  --ow-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ow-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Type ramp (px) — see typography preview */
+  --ow-text-title:    96px; /* Inter Bold */
+  --ow-text-h1:       32px;
+  --ow-text-h2:       20px;
+  --ow-text-h3:       18px;
+  --ow-text-sub:      16px;
+  --ow-text-body1:    14px;
+  --ow-text-body2:    14px; /* medium */
+  --ow-text-body3:    12px;
+  --ow-text-body4:    10px;
+  --ow-text-link:     14px;
+  --ow-text-label:    12px;
+
+  --ow-lh-tight: 1.1;
+  --ow-lh-snug:  1.25;
+  --ow-lh-base:  1.4;
+  --ow-lh-loose: 1.55;
+
+  /* ---------- Radius ---------- */
+  --ow-radius-xs: 4px;
+  --ow-radius-sm: 8px;
+  --ow-radius-md: 12px;
+  --ow-radius-lg: 16px;
+  --ow-radius-xl: 20px;
+  --ow-radius-2xl: 24px;
+  --ow-radius-pill: 999px;
+
+  /* ---------- Spacing (4px grid) ---------- */
+  --ow-space-1:  4px;
+  --ow-space-2:  8px;
+  --ow-space-3:  12px;
+  --ow-space-4:  16px;
+  --ow-space-5:  20px;
+  --ow-space-6:  24px;
+  --ow-space-7:  32px;
+  --ow-space-8:  40px;
+  --ow-space-9:  48px;
+  --ow-space-10: 64px;
+
+  /* ---------- Elevation ---------- */
+  --ow-shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 1px rgba(0,0,0,0.04);
+  --ow-shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --ow-shadow-lg: 0 12px 32px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  --ow-shadow-purple: 0 8px 24px rgba(175,75,251,0.25);
+
+  /* ---------- Motion ---------- */
+  --ow-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ow-dur-1: 120ms;
+  --ow-dur-2: 200ms;
+  --ow-dur-3: 320ms;
+}
+
+/* =========================================================
+   Base + Type ramp utility classes
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  font-family: var(--ow-font-sans);
+  color: var(--ow-text);
+  background: var(--ow-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ow-title    { font: 800 var(--ow-text-title)/var(--ow-lh-tight) var(--ow-font-sans); color: var(--ow-text); letter-spacing: -0.02em; }
+.ow-h1       { font: 700 var(--ow-text-h1)/var(--ow-lh-snug) var(--ow-font-sans); color: var(--ow-text); letter-spacing: -0.01em; }
+.ow-h2       { font: 700 var(--ow-text-h2)/var(--ow-lh-snug) var(--ow-font-sans); color: var(--ow-text); letter-spacing: -0.005em; }
+.ow-h3       { font: 700 var(--ow-text-h3)/var(--ow-lh-snug) var(--ow-font-sans); color: var(--ow-text); }
+.ow-sub      { font: 700 var(--ow-text-sub)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text); }
+.ow-body-1   { font: 700 var(--ow-text-body1)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text); }
+.ow-body-2   { font: 500 var(--ow-text-body2)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text-secondary); }
+.ow-body-3   { font: 500 var(--ow-text-body3)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text-secondary); }
+.ow-body-4   { font: 500 var(--ow-text-body4)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text-secondary); }
+.ow-link     { font: 700 var(--ow-text-link)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-blue-500); text-decoration: underline; }
+.ow-link:hover { text-decoration: underline; }
+.ow-label    { font: 700 var(--ow-text-label)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-blue-500); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.ow-mono     { font-family: var(--ow-font-mono); }
+
+/* =========================================================
+   Component primitives
+   ========================================================= */
+
+/* Buttons */
+.ow-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 700 16px/1 var(--ow-font-sans);
+  height: 56px; padding: 0 24px;
+  border-radius: var(--ow-radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--ow-dur-1) var(--ow-ease), background var(--ow-dur-2) var(--ow-ease), color var(--ow-dur-2) var(--ow-ease), border-color var(--ow-dur-2) var(--ow-ease);
+  text-decoration: none;
+  user-select: none;
+}
+.ow-btn:active { transform: scale(0.98); }
+.ow-btn--sm { height: 40px; padding: 0 16px; font-size: 14px; }
+.ow-btn--lg { height: 64px; padding: 0 28px; font-size: 18px; }
+
+.ow-btn--primary { background: var(--ow-primary); color: var(--ow-text-on-primary); }
+.ow-btn--primary:hover { background: var(--ow-primary-strong); }
+.ow-btn--primary:disabled, .ow-btn--primary[aria-disabled="true"] {
+  background: var(--ow-purple-200); color: var(--ow-white); cursor: not-allowed;
+}
+
+.ow-btn--secondary {
+  background: var(--ow-purple-100); color: var(--ow-primary);
+}
+.ow-btn--secondary:hover { background: var(--ow-purple-200); }
+
+.ow-btn--ghost {
+  background: transparent; color: var(--ow-text); border-color: var(--ow-border);
+}
+.ow-btn--ghost:hover { background: var(--ow-grey-100); }
+
+.ow-btn--text {
+  background: transparent; color: var(--ow-primary); height: auto; padding: 8px 4px;
+  border-radius: 4px;
+}
+
+.ow-btn--destructive { background: var(--ow-error); color: var(--ow-white); }
+.ow-btn--destructive:hover { filter: brightness(0.92); }
+
+/* Input — label lives inside the bordered container, above the value */
+.ow-field { display: flex; flex-direction: column; gap: 6px; }
+
+label.ow-input,
+.ow-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  border: 1px solid var(--ow-border);
+  background: var(--ow-white);
+  border-radius: 10px;
+  padding: 12px 16px;
+  transition: border-color var(--ow-dur-2) var(--ow-ease), box-shadow var(--ow-dur-2) var(--ow-ease);
+  cursor: text;
+  box-sizing: border-box;
+}
+.ow-input:focus-within { border-color: var(--ow-primary); box-shadow: 0 0 0 4px rgba(175,75,251,0.12); }
+.ow-input.is-error { border-color: var(--ow-error); }
+.ow-input.is-error:focus-within { box-shadow: 0 0 0 4px rgba(221,3,3,0.12); }
+
+.ow-input-label {
+  display: block;
+  font: 700 14px/1.2 var(--ow-font-sans);
+  color: var(--ow-text);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.ow-input > input,
+.ow-input > textarea,
+.ow-input > select {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  font: 400 15px/1.3 var(--ow-font-sans);
+  color: var(--ow-text-secondary);
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.ow-input input::placeholder,
+.ow-input textarea::placeholder { color: var(--ow-text-tertiary); font-weight: 500; }
+
+.ow-field-help  { font: 500 12px/1.4 var(--ow-font-sans); color: var(--ow-text-secondary); padding: 0 4px; }
+.ow-field-error { font: 700 12px/1.4 var(--ow-font-sans); color: var(--ow-error); padding: 0 4px; }
+/* legacy external label — still available but no longer the default */
+.ow-field-label { font: 700 12px/1 var(--ow-font-sans); color: var(--ow-text); letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* Card */
+.ow-card {
+  background: var(--ow-white);
+  border: 1px solid var(--ow-border);
+  border-radius: var(--ow-radius-lg);
+  padding: 20px;
+  box-shadow: var(--ow-shadow-sm);
+}
+.ow-card--flat { box-shadow: none; }
+.ow-card--elevated { box-shadow: var(--ow-shadow-md); }
+
+/* Pill / Badge */
+.ow-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 12px;
+  border-radius: var(--ow-radius-pill);
+  font: 700 12px/1 var(--ow-font-sans);
+  letter-spacing: 0.02em;
+}
+.ow-pill--info     { background: var(--ow-blue-100);    color: var(--ow-blue-500); }
+.ow-pill--positive { background: var(--ow-green-100);   color: var(--ow-positive-strong); }
+.ow-pill--warning  { background: var(--ow-warning-tint);color: var(--ow-warning); }
+.ow-pill--error    { background: var(--ow-error-tint);  color: var(--ow-error); }
+.ow-pill--purple   { background: var(--ow-purple-100);  color: var(--ow-primary); }
+.ow-pill--neutral  { background: var(--ow-grey-100);    color: var(--ow-grey-500); }
+
+/* Progress */
+.ow-progress {
+  width: 100%; height: 8px; border-radius: var(--ow-radius-pill);
+  background: var(--ow-grey-200); overflow: hidden;
+}
+.ow-progress > i {
+  display: block; height: 100%; background: var(--ow-primary);
+  border-radius: inherit; transition: width var(--ow-dur-3) var(--ow-ease);
+}
+.ow-progress--positive > i { background: var(--ow-positive); }
+
+/* Divider */
+.ow-divider { height: 1px; background: var(--ow-divider); border: 0; margin: 16px 0; }
+
+/* Toggle */
+.ow-toggle { position: relative; width: 48px; height: 28px; display: inline-block; }
+.ow-toggle input { opacity: 0; width: 0; height: 0; }
+.ow-toggle-track {
+  position: absolute; inset: 0;
+  background: var(--ow-grey-200); border-radius: 999px;
+  transition: background var(--ow-dur-2) var(--ow-ease);
+}
+.ow-toggle-track::before {
+  content: ""; position: absolute; top: 3px; left: 3px;
+  width: 22px; height: 22px; background: white; border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform var(--ow-dur-2) var(--ow-ease);
+}
+.ow-toggle input:checked + .ow-toggle-track { background: var(--ow-primary); }
+.ow-toggle input:checked + .ow-toggle-track::before { transform: translateX(20px); }
+
+/* Checkbox */
+.ow-checkbox { position: relative; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.ow-checkbox input { position: absolute; opacity: 0; pointer-events: none; }
+.ow-checkbox-box {
+  width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--ow-grey-400);
+  display: inline-flex; align-items: center; justify-content: center;
+  background: white; transition: background var(--ow-dur-2) var(--ow-ease), border-color var(--ow-dur-2) var(--ow-ease);
+}
+.ow-checkbox input:checked + .ow-checkbox-box { background: var(--ow-primary); border-color: var(--ow-primary); }
+.ow-checkbox-box svg { opacity: 0; transition: opacity var(--ow-dur-1); }
+.ow-checkbox input:checked + .ow-checkbox-box svg { opacity: 1; }
+
+/* Radio */
+.ow-radio { position: relative; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.ow-radio input { position: absolute; opacity: 0; pointer-events: none; }
+.ow-radio-dot {
+  width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--ow-grey-400);
+  display: inline-flex; align-items: center; justify-content: center; background: white;
+  transition: border-color var(--ow-dur-2) var(--ow-ease);
+}
+.ow-radio-dot::after {
+  content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--ow-primary);
+  transform: scale(0); transition: transform var(--ow-dur-2) var(--ow-ease);
+}
+.ow-radio input:checked + .ow-radio-dot { border-color: var(--ow-primary); }
+.ow-radio input:checked + .ow-radio-dot::after { transform: scale(1); }
+
+/* Tab bar (mobile) */
+.ow-tabbar {
+  display: flex; align-items: center; justify-content: space-around;
+  background: var(--ow-white);
+  border-top: 1px solid var(--ow-divider);
+  padding: 8px 12px 24px;
+}
+.ow-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 14px; border-radius: var(--ow-radius-md);
+  color: var(--ow-text); font: 700 12px/1 var(--ow-font-sans);
+  background: transparent;
+  border: 0; cursor: pointer;
+}
+.ow-tab[aria-selected="true"] { background: var(--ow-purple-100); color: var(--ow-primary); }
+.ow-tab[aria-selected="true"] svg { color: var(--ow-primary); }
+
+/* Container helpers */
+.ow-stack { display: flex; flex-direction: column; gap: 16px; }
+.ow-row   { display: flex; align-items: center; gap: 12px; }
+
+</style>
+<style>
+/* =========================================================
+   Optiwatt Marketing Site — site.css (v2)
+   Direction: dark navy hero + green CTA (EnergyHub-aligned),
+   chunky Inter Black display, circular framed media,
+   line-art connectors, light bento sections, Plex Mono metrics.
+   ========================================================= */
+
+:root {
+  /* Dark anchor: brand purple-800 family */
+  --bg-dark:           #271D69; /* --ow-purple-800 */
+  --bg-dark-2:         #322880;
+  --bg-dark-card:      #2F2578;
+  --bg-dark-card-2:    #3A2F8F;
+  --bg-dark-deep:      #15103E; /* footer / deepest moments */
+  --hero-fg:           #F4EFFF;
+  --hero-fg-muted:     rgba(244, 239, 255, 0.72);
+  --hero-fg-dim:       rgba(244, 239, 255, 0.48);
+  --hero-divider:      rgba(244, 239, 255, 0.14);
+
+  --accent-green:        #00D73F; /* --ow-green-500 */
+  --accent-green-text:   #00AB32; /* --ow-green-700 */
+  --accent-green-soft:   rgba(0, 215, 63, 0.18);
+  --accent-purple:       #AF4BFB; /* --ow-purple-500 */
+  --accent-purple-soft:  rgba(175, 75, 251, 0.18);
+  --accent-pink:         #FB42D2; /* --ow-pink-500, accent only */
+
+  /* Light tints — purple-100 brand tint, not cream */
+  --bg-tint:           #FBF6FF; /* --ow-purple-100 */
+  --bg-tint-2:         #F2F2F2; /* --ow-grey-100 */
+
+  --display-font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono-font: "IBM Plex Mono", ui-monospace, monospace;
+
+  --container: 1240px;
+  --gutter: 32px;
+}
+
+/* =========================================================
+   Reset & base
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--ow-font-sans);
+  color: var(--ow-text);
+  background: var(--ow-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+::selection { background: var(--accent-green-soft); color: var(--ow-text); }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* =========================================================
+   Typography utilities
+   ========================================================= */
+.eyebrow {
+  font-family: var(--mono-font);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--accent-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px; height: 1px;
+  background: var(--accent-green);
+  display: inline-block;
+}
+.eyebrow.no-rule::before { display: none; }
+.eyebrow.dark { color: var(--accent-green-text); }
+
+.display-xl, .display-l, .display-m, .display-s {
+  font-family: var(--display-font);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  margin: 0;
+}
+.display-xl { font-size: clamp(48px, 8.2vw, 124px); }
+.display-l  { font-size: clamp(40px, 6vw, 92px); }
+.display-m  { font-size: clamp(32px, 4.6vw, 64px); line-height: 1.0; }
+.display-s  { font-size: clamp(26px, 3vw, 40px); line-height: 1.05; letter-spacing: -0.025em; }
+
+.lede {
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.5;
+  color: var(--ow-text-secondary);
+  margin: 0;
+  max-width: 56ch;
+}
+.dark-section .lede { color: var(--hero-fg-muted); }
+
+.metric {
+  font-family: var(--mono-font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.metric-xl { font-size: clamp(56px, 6.4vw, 88px); }
+.metric-l  { font-size: clamp(44px, 4.8vw, 64px); }
+.metric-m  { font-size: clamp(28px, 3vw, 38px); }
+.metric-s  { font-size: 22px; }
+
+.metric-label {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ow-text-tertiary);
+}
+.dark-section .metric-label { color: var(--hero-fg-dim); }
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--ow-font-sans);
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: var(--accent-green);
+  color: #0A1A0E;
+  box-shadow: 0 6px 24px -10px rgba(0, 215, 63, 0.7);
+}
+.btn-primary:hover {
+  background: #1AE356;
+  box-shadow: 0 12px 30px -10px rgba(0, 215, 63, 0.9);
+}
+.btn-ghost-light {
+  border: 1.5px solid rgba(244, 239, 255, 0.4);
+  color: var(--hero-fg);
+  background: transparent;
+}
+.btn-ghost-light:hover {
+  border-color: var(--hero-fg);
+  background: rgba(244, 239, 255, 0.05);
+}
+.btn-ghost-dark {
+  border: 1.5px solid var(--ow-grey-300);
+  color: var(--ow-text);
+  background: transparent;
+}
+.btn-ghost-dark:hover {
+  border-color: var(--ow-text);
+  background: rgba(0,0,0,0.03);
+}
+.btn-arrow::after {
+  content: "→";
+  font-size: 17px;
+  margin-left: 2px;
+  transition: transform 0.18s ease;
+}
+.btn:hover .btn-arrow::after,
+.btn-arrow:hover::after { transform: translateX(3px); }
+
+/* =========================================================
+   Top nav
+   ========================================================= */
+.site-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 22px 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo img { height: 26px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--hero-fg);
+  position: relative;
+  padding: 4px 0;
+}
+.nav-links a:hover { color: var(--accent-green); }
+.nav-links a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 1.5px;
+  background: var(--accent-green);
+}
+.nav-cta { padding: 10px 18px; font-size: 13px; }
+
+/* nav variant on light pages */
+.site-nav.is-light .nav-links a { color: var(--ow-text); }
+.site-nav.is-light .nav-links a:hover { color: var(--accent-green-text); }
+
+/* =========================================================
+   HERO (dark)
+   ========================================================= */
+.hero {
+  position: relative;
+  background: var(--bg-dark);
+  color: var(--hero-fg);
+  padding: 156px 0 120px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 900px; height: 900px;
+  left: -180px; top: -200px;
+  background: radial-gradient(circle, rgba(175, 75, 251, 0.4), rgba(175, 75, 251, 0) 60%);
+  z-index: -2;
+  pointer-events: none;
+}
+.hero .pink-wash {
+  position: absolute;
+  width: 600px; height: 600px;
+  right: -150px; bottom: -200px;
+  background: radial-gradient(circle, rgba(251, 66, 210, 0.18), transparent 60%);
+  pointer-events: none;
+  z-index: -2;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 239, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 239, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  z-index: -1;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 30% 35%, black 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 70% at 30% 35%, black 30%, transparent 80%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: center;
+}
+.hero-copy { max-width: 640px; }
+.hero-eyebrow { margin-bottom: 28px; }
+.hero h1 { margin-bottom: 28px; }
+.hero .lede { margin-bottom: 40px; max-width: 50ch; }
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* hero visual: circular framed dashboard + connectors + small badge */
+.hero-visual {
+  position: relative;
+  height: 540px;
+}
+.frame-circle {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--hero-divider);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6);
+}
+.frame-circle.f-main {
+  width: 460px; height: 460px;
+  right: 0; top: 30px;
+}
+.frame-circle.f-badge {
+  width: 168px; height: 168px;
+  left: -10px; bottom: 30px;
+  background: linear-gradient(160deg, #3A2F8F, #1A1450);
+  display: grid;
+  place-items: center;
+}
+
+.dashboard-tile {
+  width: 100%; height: 100%;
+  background: linear-gradient(160deg, #3A2F8F, #1A1450);
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tile-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px;
+}
+.tile-tag {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hero-fg-dim);
+}
+.tile-status {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.tile-status::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 0 4px rgba(0, 215, 63, 0.18);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(0, 215, 63, 0.18); }
+  50%      { box-shadow: 0 0 0 7px rgba(0, 215, 63, 0.05); }
+}
+.tile-bignum {
+  font-family: var(--mono-font);
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--hero-fg);
+}
+.tile-label {
+  font-size: 12px;
+  color: var(--hero-fg-muted);
+  font-family: var(--mono-font);
+}
+.tile-chart {
+  margin-top: 6px;
+  height: 110px;
+}
+.tile-row-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--hero-divider);
+}
+.tile-row-stats .num {
+  font-family: var(--mono-font);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--hero-fg);
+}
+.tile-row-stats .lbl {
+  font-family: var(--mono-font);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hero-fg-dim);
+  margin-top: 4px;
+}
+
+.badge-content { text-align: center; padding: 10px; }
+.badge-content .num {
+  font-family: var(--mono-font);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--accent-green);
+  letter-spacing: -0.03em;
+  display: block;
+  line-height: 1;
+}
+.badge-content .lbl {
+  font-family: var(--mono-font);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hero-fg-muted);
+  margin-top: 8px;
+  display: block;
+}
+
+.hero-connectors {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-connectors path {
+  stroke: rgba(244, 239, 255, 0.18);
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 4 6;
+}
+.hero-connectors circle { fill: rgba(244, 239, 255, 0.4); }
+
+/* =========================================================
+   Logo strip (light, just below hero)
+   ========================================================= */
+.logo-strip { background: var(--ow-white); padding: 72px 0 48px; }
+.logo-strip-inner { text-align: center; }
+.logo-strip-label {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ow-text-tertiary);
+  margin-bottom: 32px;
+}
+.logo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+.logo-row span {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ow-grey-500);
+  letter-spacing: -0.01em;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   Bento stat grid
+   ========================================================= */
+.bento { background: var(--ow-white); padding: 88px 0 120px; }
+.bento-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.bento-head h2 { margin: 16px 0 0; }
+.bento-head p { margin: 0; }
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.b-card {
+  background: var(--bg-tint);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.b-card.dark { background: var(--bg-dark); color: var(--hero-fg); }
+.b-card.dark .metric-label { color: var(--hero-fg-dim); }
+.b-card.green { background: var(--ow-green-100); }
+.b-card.purple-tint { background: var(--ow-purple-100); }
+.b-card.span-6 { grid-column: span 6; }
+.b-card.span-4 { grid-column: span 4; }
+.b-card.span-3 { grid-column: span 3; }
+.b-card.span-8 { grid-column: span 8; }
+
+.b-card .metric { color: var(--ow-text); }
+.b-card.dark .metric { color: var(--hero-fg); }
+.b-card.green .metric { color: var(--accent-green-text); }
+
+.b-card .b-desc { font-size: 14px; color: var(--ow-text-secondary); margin: 0; max-width: 38ch; }
+.b-card.dark .b-desc { color: var(--hero-fg-muted); }
+
+.b-card .deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.06);
+  pointer-events: none;
+}
+.b-card.dark .deco-circle { border-color: rgba(244,239,255,0.08); }
+
+.spark { height: 56px; width: 100%; }
+
+/* =========================================================
+   Section: Universal device coverage
+   ========================================================= */
+.devices { background: var(--bg-tint); padding: 112px 0; }
+.devices-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.devices-head h2 { margin: 18px 0 0; }
+.devices-head p { margin: 0; }
+
+.device-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.device-card {
+  background: var(--ow-white);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.device-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -30px rgba(14, 20, 33, 0.25);
+}
+.device-icon {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: var(--accent-green);
+  display: grid;
+  place-items: center;
+}
+.device-icon svg { width: 34px; height: 34px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+.device-card h3 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+.device-card p { margin: 0; font-size: 14px; color: var(--ow-text-secondary); }
+.protocol-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed var(--ow-grey-200);
+}
+.chip {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: 4px;
+  background: var(--ow-grey-100);
+  color: var(--ow-grey-500);
+}
+
+.proto-wall {
+  margin-top: 56px;
+  padding: 36px;
+  background: var(--ow-white);
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.proto-wall .label {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ow-text-tertiary);
+  margin-bottom: 18px;
+}
+.proto-wall .chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.proto-wall .chip { background: var(--bg-tint-2); font-size: 12px; padding: 7px 14px; }
+
+/* =========================================================
+   Section: Integration architecture (3 cols)
+   ========================================================= */
+.arch { background: var(--ow-white); padding: 120px 0; }
+.arch-head {
+  text-align: center;
+  margin: 0 auto 64px;
+  max-width: 720px;
+}
+.arch-head h2 { margin: 16px 0; }
+.arch-head p { margin: 0 auto; }
+
+.arch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  position: relative;
+}
+.arch-col {
+  padding: 36px 32px;
+  border-radius: 24px;
+  background: var(--bg-tint);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.arch-col.center {
+  background: var(--bg-dark);
+  color: var(--hero-fg);
+  margin: 0 -8px;
+  z-index: 2;
+  box-shadow: 0 30px 80px -30px rgba(14,20,33,0.4);
+}
+.arch-col h3 { font-size: 20px; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+.arch-col .arch-eyebrow {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ow-text-tertiary);
+}
+.arch-col.center .arch-eyebrow { color: var(--accent-green); }
+.arch-col p { margin: 0; font-size: 14px; color: var(--ow-text-secondary); }
+.arch-col.center p { color: var(--hero-fg-muted); }
+
+.arch-col ul {
+  list-style: none; padding: 0; margin: 8px 0 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.arch-col ul li {
+  font-size: 13px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px;
+  background: var(--ow-white);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.arch-col.center ul li {
+  background: var(--bg-dark-card);
+  border-color: var(--hero-divider);
+  color: var(--hero-fg-muted);
+}
+.arch-col ul li::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-green);
+  flex-shrink: 0;
+}
+
+.arch-sub-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--ow-grey-200);
+}
+.arch-sub-stats > div { text-align: left; }
+.arch-sub-stats .num {
+  font-family: var(--mono-font);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ow-text);
+}
+.arch-sub-stats .lbl { font-size: 13px; color: var(--ow-text-secondary); margin-top: 4px; }
+
+/* =========================================================
+   Section: Performance (DARK)
+   ========================================================= */
+.perf {
+  background: var(--bg-dark);
+  color: var(--hero-fg);
+  padding: 128px 0;
+  position: relative;
+  overflow: hidden;
+}
+.perf::before {
+  content: "";
+  position: absolute;
+  width: 700px; height: 700px;
+  right: -200px; top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(175, 75, 251, 0.32), transparent 60%);
+  pointer-events: none;
+}
+.perf-head { max-width: 720px; margin-bottom: 72px; }
+.perf-head h2 { margin: 18px 0; }
+.perf-head p { color: var(--hero-fg-muted); margin: 0; }
+
+.perf-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+.event-card {
+  background: var(--bg-dark-card);
+  border-radius: 24px;
+  padding: 36px;
+  border: 1px solid var(--hero-divider);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.event-card .event-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.event-card .event-tag {
+  background: var(--accent-green-soft);
+  color: var(--accent-green);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.event-card .event-date { color: var(--hero-fg-dim); }
+.event-card h3 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.event-card .event-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hero-divider);
+}
+.event-card .event-stats .num {
+  font-family: var(--mono-font);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--accent-green);
+  letter-spacing: -0.02em;
+}
+.event-card .event-stats .num.neutral { color: var(--hero-fg); }
+.event-card .event-stats .lbl {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hero-fg-dim);
+  margin-top: 6px;
+}
+
+.event-chart { width: 100%; height: 200px; margin-top: 8px; }
+
+.perf-side {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px;
+}
+.perf-side > div {
+  background: var(--bg-dark-card);
+  border-radius: 20px;
+  padding: 26px 28px;
+  border: 1px solid var(--hero-divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.perf-side .num {
+  font-family: var(--mono-font);
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: -0.02em;
+  color: var(--accent-green);
+}
+.perf-side .lbl {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hero-fg-dim);
+  text-align: right;
+}
+
+/* =========================================================
+   Section: Enterprise integrations
+   ========================================================= */
+.enterprise { background: var(--bg-tint); padding: 120px 0; }
+.enterprise-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+}
+.enterprise h2 { margin: 18px 0; }
+.enterprise .lede { margin-bottom: 32px; }
+.enterprise-bullets { list-style: none; padding: 0; margin: 0; }
+.enterprise-bullets li {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 0;
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+.enterprise-bullets li:last-child { border-bottom: 1px solid rgba(0,0,0,0.07); }
+.enterprise-bullets .num {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--ow-text-tertiary);
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+.enterprise-bullets h4 { margin: 0; font-size: 16px; font-weight: 700; }
+.enterprise-bullets p { margin: 4px 0 0; font-size: 14px; color: var(--ow-text-secondary); }
+
+.soc-card {
+  background: var(--ow-white);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.soc-card .soc-shield {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: var(--accent-green);
+  display: grid; place-items: center;
+  margin-bottom: 24px;
+}
+.soc-card .soc-shield svg { width: 40px; height: 40px; }
+.soc-card h3 { margin: 0 0 10px; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.soc-card p { margin: 0 0 24px; font-size: 14px; color: var(--ow-text-secondary); }
+.soc-card .chip { background: var(--bg-tint); }
+
+/* =========================================================
+   CTA strip (dark)
+   ========================================================= */
+.cta-strip {
+  background: var(--bg-dark);
+  color: var(--hero-fg);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-strip::before {
+  content: "";
+  position: absolute;
+  width: 800px; height: 800px;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0, 215, 63, 0.1), transparent 60%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.cta-inner h2 { margin: 0; max-width: 18ch; }
+.cta-inner .cta-sub {
+  margin-top: 16px;
+  color: var(--hero-fg-muted);
+  font-size: 17px;
+  max-width: 44ch;
+}
+.cta-actions { display: flex; gap: 14px; flex-shrink: 0; flex-wrap: wrap; }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer { background: var(--bg-dark-deep); color: var(--hero-fg-muted); padding: 72px 0 36px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 56px;
+  margin-bottom: 56px;
+}
+.footer-grid .footer-logo svg { margin-bottom: 18px; opacity: 0.95; }
+.footer-grid p { font-size: 14px; max-width: 32ch; margin: 0; }
+.footer-col h5 {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  color: var(--hero-fg);
+}
+.footer-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 14px; color: var(--hero-fg-muted); transition: color 0.18s ease; }
+.footer-col a:hover { color: var(--accent-green); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid var(--hero-divider);
+  font-size: 13px;
+}
+
+/* =========================================================
+   Reveal animation
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.delay-1 { transition-delay: 0.06s; }
+.reveal.delay-2 { transition-delay: 0.12s; }
+.reveal.delay-3 { transition-delay: 0.18s; }
+.reveal.delay-4 { transition-delay: 0.24s; }
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1100px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { height: 460px; max-width: 480px; margin: 0 auto; }
+  .frame-circle.f-main { width: 380px; height: 380px; }
+  .frame-circle.f-badge { width: 140px; height: 140px; }
+  .arch-grid { grid-template-columns: 1fr; gap: 16px; }
+  .arch-col.center { margin: 0; }
+  .arch-sub-stats { grid-template-columns: repeat(2, 1fr); }
+  .perf-grid { grid-template-columns: 1fr; }
+  .enterprise-grid { grid-template-columns: 1fr; gap: 48px; }
+  .device-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+  .bento-head { grid-template-columns: 1fr; gap: 20px; }
+  .b-card.span-3, .b-card.span-4, .b-card.span-6, .b-card.span-8 { grid-column: span 6; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 130px 0 80px; }
+  .hero-visual { height: 380px; }
+  .frame-circle.f-main { width: 300px; height: 300px; }
+  .dashboard-tile { padding: 30px 26px; }
+  .tile-bignum { font-size: 44px; }
+  .device-grid { grid-template-columns: 1fr; }
+  .b-card.span-3, .b-card.span-4, .b-card.span-6, .b-card.span-8 { grid-column: span 12; }
+  .nav-links { display: none; }
+  .arch-sub-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .b-card { padding: 28px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="site-nav is-dark">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html">
+      <span style="color:#00D73F;display:inline-flex;"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 29 29" fill="none">
+  <path d="M 14.5 0 C 22.508 0 29 6.492 29 14.5 C 29 22.508 22.508 29 14.5 29 C 6.492 29 0 22.508 0 14.5 C 0 6.492 6.492 0 14.5 0 Z M 14.659 13.06 L 17.926 13.06 L 12.746 23.877 C 12.361 24.68 13.409 25.396 14.031 24.749 L 22.116 16.342 C 24.044 14.333 22.611 11.012 19.813 11.012 L 15.643 11.012 L 14.659 13.06 Z M 17.244 5.123 C 17.629 4.32 16.582 3.605 15.959 4.251 L 7.884 12.658 C 5.956 14.667 7.389 17.988 10.187 17.988 L 14.357 17.988 L 15.346 15.931 L 15.336 15.94 L 12.064 15.94 L 17.244 5.123 Z M 14.654 13.06 L 14.654 13.069 L 14.659 13.06 L 14.654 13.06 Z" fill="currentColor" fill-rule="nonzero"></path>
+</svg></span>
+      <span style="color:var(--hero-fg);font-weight:700;font-size:17px;letter-spacing:-0.01em;">Optiwatt</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="is-active">Utilities</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="consumers.html">Consumers</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Company</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#cta">Schedule demo</a>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero dark-section">
+  <span class="pink-wash" aria-hidden="true"></span>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow hero-eyebrow reveal in">For utilities &amp; grid operators</p>
+      <h1 class="display-xl reveal delay-1 in">The DER&nbsp;platform built for utility scale.</h1>
+      <p class="lede reveal delay-2 in">Dispatch and orchestrate distributed energy resources across millions of devices. Sub-50ms latency, 99.97% uptime, integration with every major DERMS, billing, and grid system you already run.</p>
+      <div class="hero-ctas reveal delay-3 in">
+        <a href="#cta" class="btn btn-primary btn-arrow">Schedule a demo</a>
+        <a href="#" class="btn btn-ghost-light">View case studies</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal delay-2 in" aria-hidden="true">
+      <!-- subtle dashed connector lines à la EnergyHub -->
+      <svg class="hero-connectors" viewBox="0 0 540 540" preserveAspectRatio="none">
+        <path d="M 80 460 Q 200 460 220 380" />
+        <path d="M 460 80 Q 540 200 460 280" />
+        <path d="M 100 100 Q 230 80 280 140" />
+        <circle cx="80" cy="460" r="3"/>
+        <circle cx="460" cy="80" r="3"/>
+        <circle cx="100" cy="100" r="3"/>
+      </svg>
+
+      <!-- main dashboard circle -->
+      <div class="frame-circle f-main">
+        <div class="dashboard-tile">
+          <div class="tile-row">
+            <span class="tile-tag">Program overview</span>
+            <span class="tile-status">Live</span>
+          </div>
+          <div>
+            <div class="tile-bignum">358,420</div>
+            <div class="tile-label">kWh shifted today</div>
+          </div>
+          <svg class="tile-chart" viewBox="0 0 380 110" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#00D73F" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#00D73F" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,80 L24,72 L48,76 L72,60 L96,55 L120,48 L144,52 L168,40 L192,30 L216,38 L240,25 L264,30 L288,18 L312,22 L336,12 L360,18 L380,10 L380,110 L0,110 Z" fill="url(#chartFill)"/>
+            <path d="M0,80 L24,72 L48,76 L72,60 L96,55 L120,48 L144,52 L168,40 L192,30 L216,38 L240,25 L264,30 L288,18 L312,22 L336,12 L360,18 L380,10" stroke="#00D73F" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div class="tile-row-stats">
+            <div>
+              <div class="num">−9.8%</div>
+              <div class="lbl">Peak load</div>
+            </div>
+            <div>
+              <div class="num">5,812</div>
+              <div class="lbl">Enrolled</div>
+            </div>
+            <div>
+              <div class="num">143K</div>
+              <div class="lbl">kg CO₂</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- accent badge circle -->
+      <div class="frame-circle f-badge">
+        <div class="badge-content">
+          <span class="num">98<span style="font-size:0.55em;">%</span></span>
+          <span class="lbl">Response<br>rate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== LOGO STRIP ============== -->
+<section class="logo-strip">
+  <div class="container logo-strip-inner">
+    <div class="logo-strip-label">Trusted by utilities serving 80M+ ratepayers</div>
+    <div class="logo-row">
+      <span>PG&amp;E</span>
+      <span>SCE</span>
+      <span>PSE&amp;G</span>
+      <span>LADWP</span>
+      <span>ComEd</span>
+      <span>Uplight</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== BENTO STATS ============== -->
+<section class="bento">
+  <div class="container">
+    <div class="bento-head">
+      <div>
+        <p class="eyebrow dark reveal">Platform at a glance</p>
+        <h2 class="display-m reveal delay-1">Numbers utilities run on.</h2>
+      </div>
+      <p class="lede reveal delay-2">Built for the realities of grid operations: high-volume dispatch, regulatory reporting, and SLA-grade reliability.</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- big dark card -->
+      <div class="b-card dark span-6 reveal">
+        <p class="metric-label">Devices managed</p>
+        <div class="metric metric-xl" style="color:var(--accent-green);">145,000<span style="color:var(--hero-fg);font-size:0.6em;opacity:0.6;">+</span></div>
+        <p class="b-desc">Across EVs, chargers, batteries, and thermostats — actively dispatchable today.</p>
+        <span class="deco-circle" style="width:280px;height:280px;right:-100px;bottom:-100px;"></span>
+      </div>
+
+      <!-- green card -->
+      <div class="b-card green span-3 reveal delay-1">
+        <p class="metric-label">Dispatchable</p>
+        <div class="metric metric-l">4&thinsp;GW</div>
+        <p class="b-desc">Aggregated capacity under management.</p>
+      </div>
+
+      <!-- cream card -->
+      <div class="b-card span-3 reveal delay-2">
+        <p class="metric-label">Programs live</p>
+        <div class="metric metric-l">20<span style="color:var(--accent-purple);">+</span></div>
+        <p class="b-desc">VPP, DR, peak shaving, load shifting, emergency DR.</p>
+      </div>
+
+      <!-- bottom row -->
+      <div class="b-card span-3 reveal delay-1">
+        <p class="metric-label">Avg latency</p>
+        <div class="metric metric-m">50<span style="font-size:0.5em;color:var(--ow-text-secondary);">ms</span></div>
+      </div>
+      <div class="b-card span-3 reveal delay-2">
+        <p class="metric-label">Uptime</p>
+        <div class="metric metric-m">99.97<span style="font-size:0.5em;color:var(--ow-text-secondary);">%</span></div>
+      </div>
+      <div class="b-card purple-tint span-3 reveal delay-3">
+        <p class="metric-label">Utility partners</p>
+        <div class="metric metric-m" style="color:var(--accent-purple);">30+</div>
+      </div>
+      <div class="b-card span-3 reveal delay-4">
+        <p class="metric-label">Response rate</p>
+        <div class="metric metric-m" style="color:var(--accent-green-text);">98<span style="font-size:0.5em;color:var(--ow-text-secondary);">%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== UNIVERSAL DEVICE COVERAGE ============== -->
+<section class="devices">
+  <div class="container">
+    <div class="devices-head">
+      <div>
+        <p class="eyebrow dark reveal">Device coverage</p>
+        <h2 class="display-m reveal delay-1">Every device. Every protocol. Every utility territory.</h2>
+      </div>
+      <p class="lede reveal delay-2">Optiwatt natively integrates with 90+ device models from 40+ manufacturers — without third-party gateways or proprietary hardware.</p>
+    </div>
+
+    <div class="device-grid">
+      <div class="device-card reveal">
+        <div class="device-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 13l2-7h14l2 7"/><circle cx="6.5" cy="16.5" r="1.5"/><circle cx="17.5" cy="16.5" r="1.5"/><path d="M3 13v5h18v-5"/></svg>
+        </div>
+        <div>
+          <h3>Electric vehicles</h3>
+          <p>Charging optimization across 60+ EV models from Tesla, Ford, GM, Hyundai, Kia, Rivian, and more.</p>
+        </div>
+        <div class="protocol-chips">
+          <span class="chip">ISO 15118</span><span class="chip">OCPP 2.0</span><span class="chip">SAE J2954</span>
+        </div>
+      </div>
+
+      <div class="device-card reveal delay-1">
+        <div class="device-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M9 8h6M9 12h6"/><path d="M11 21h2"/></svg>
+        </div>
+        <div>
+          <h3>EV chargers</h3>
+          <p>Smart Level 2 chargers from every major OEM — networked or unmanaged.</p>
+        </div>
+        <div class="protocol-chips">
+          <span class="chip">OCPP 1.6</span><span class="chip">OCPP 2.0.1</span><span class="chip">OpenADR</span>
+        </div>
+      </div>
+
+      <div class="device-card reveal delay-2">
+        <div class="device-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 6V4M17 6V4M9 12h6"/></svg>
+        </div>
+        <div>
+          <h3>Battery storage</h3>
+          <p>Behind-the-meter and front-of-meter batteries for peak shaving and grid services.</p>
+        </div>
+        <div class="protocol-chips">
+          <span class="chip">IEEE 2030.5</span><span class="chip">SunSpec</span><span class="chip">DNP3</span>
+        </div>
+      </div>
+
+      <div class="device-card reveal delay-3">
+        <div class="device-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg>
+        </div>
+        <div>
+          <h3>Smart thermostats</h3>
+          <p>HVAC dispatch with comfort guarantees — no opt-outs, no overrides.</p>
+        </div>
+        <div class="protocol-chips">
+          <span class="chip">OpenADR 2.0b</span><span class="chip">CTA-2045</span><span class="chip">BACnet</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proto-wall reveal delay-2">
+      <div class="label">Supported standards</div>
+      <div class="chips-row">
+        <span class="chip">IEEE 2030.5</span>
+        <span class="chip">OpenADR 2.0b</span>
+        <span class="chip">OCPP 1.6 / 2.0.1</span>
+        <span class="chip">CTA-2045</span>
+        <span class="chip">SunSpec Modbus</span>
+        <span class="chip">IEEE 1547</span>
+        <span class="chip">DNP3</span>
+        <span class="chip">BACnet</span>
+        <span class="chip">UL 1741</span>
+        <span class="chip">UL 9540</span>
+        <span class="chip">SEP 2.0</span>
+        <span class="chip">Matter</span>
+        <span class="chip">MQTT</span>
+        <span class="chip">WebSocket</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== INTEGRATION ARCHITECTURE ============== -->
+<section class="arch">
+  <div class="container">
+    <div class="arch-head">
+      <p class="eyebrow dark reveal">Integration architecture</p>
+      <h2 class="display-s reveal delay-1">Sits between your devices and your grid systems — without replacing either.</h2>
+      <p class="lede reveal delay-2" style="margin-left:auto;margin-right:auto;">Optiwatt is the orchestration layer. Your DERMS, SCADA, CIS, and market systems stay where they are.</p>
+    </div>
+
+    <div class="arch-grid">
+      <div class="arch-col reveal">
+        <span class="arch-eyebrow">01 — Edge</span>
+        <h3>Devices &amp; DERs</h3>
+        <p>Native cloud connections, no gateway hardware required.</p>
+        <ul>
+          <li>EVs &amp; chargers</li>
+          <li>Batteries</li>
+          <li>Thermostats</li>
+          <li>Solar inverters</li>
+        </ul>
+      </div>
+
+      <div class="arch-col center reveal delay-1">
+        <span class="arch-eyebrow">02 — Platform</span>
+        <h3>Optiwatt orchestration</h3>
+        <p>Aggregation, forecasting, dispatch, settlement, reporting.</p>
+        <ul>
+          <li>Real-time telemetry</li>
+          <li>Predictive optimization</li>
+          <li>Automated dispatch</li>
+          <li>Compliance reporting</li>
+        </ul>
+      </div>
+
+      <div class="arch-col reveal delay-2">
+        <span class="arch-eyebrow">03 — Grid</span>
+        <h3>Utility systems</h3>
+        <p>Open APIs into your existing operational stack.</p>
+        <ul>
+          <li>DERMS</li>
+          <li>SCADA</li>
+          <li>CIS / billing</li>
+          <li>Wholesale markets</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="arch-sub-stats reveal delay-2">
+      <div>
+        <div class="num">15<span style="color:var(--ow-text-tertiary);">+</span></div>
+        <div class="lbl">Industry protocols</div>
+      </div>
+      <div>
+        <div class="num">90<span style="color:var(--ow-text-tertiary);">+</span></div>
+        <div class="lbl">Device models</div>
+      </div>
+      <div>
+        <div class="num">99.97<span style="color:var(--ow-text-tertiary);font-size:0.55em;">%</span></div>
+        <div class="lbl">Platform uptime</div>
+      </div>
+      <div>
+        <div class="num">&lt;50<span style="color:var(--ow-text-tertiary);font-size:0.55em;">ms</span></div>
+        <div class="lbl">Avg dispatch latency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PERFORMANCE (DARK) ============== -->
+<section class="perf dark-section">
+  <div class="container" style="position:relative;">
+    <div class="perf-head">
+      <p class="eyebrow reveal">Proven program performance</p>
+      <h2 class="display-m reveal delay-1">Real events. Real megawatts. Real settlement.</h2>
+      <p class="reveal delay-2">Every dispatch is logged, telemetered, and reported. This was a single peak event last summer.</p>
+    </div>
+
+    <div class="perf-grid">
+      <article class="event-card reveal">
+        <div class="event-eyebrow">
+          <span class="event-tag">Peak event</span>
+          <span class="event-date">July 15, 2026 · 4:00 – 7:00 PM</span>
+        </div>
+        <h3>342 MW reduced against a 320 MW target</h3>
+
+        <svg class="event-chart" viewBox="0 0 600 200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="evtFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00D73F" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#00D73F" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- target line -->
+          <line x1="0" y1="80" x2="600" y2="80" stroke="rgba(244,239,255,0.35)" stroke-dasharray="4 4" stroke-width="1"/>
+          <text x="8" y="74" font-family="IBM Plex Mono" font-size="10" fill="rgba(244,239,255,0.55)">TARGET 320 MW</text>
+          <!-- baseline forecast (dashed gray) -->
+          <path d="M0,170 L60,168 L120,165 L180,162 L240,160 L300,158 L360,160 L420,162 L480,165 L540,167 L600,170" stroke="rgba(244,239,255,0.4)" stroke-dasharray="3 4" stroke-width="1.2" fill="none"/>
+          <!-- actual reduction (filled green) -->
+          <path d="M0,170 L60,165 L120,140 L180,90 L240,55 L300,40 L360,42 L420,55 L480,90 L540,140 L600,170 L600,200 L0,200 Z" fill="url(#evtFill)"/>
+          <path d="M0,170 L60,165 L120,140 L180,90 L240,55 L300,40 L360,42 L420,55 L480,90 L540,140 L600,170" stroke="#00D73F" stroke-width="2" fill="none"/>
+          <!-- peak marker -->
+          <circle cx="300" cy="40" r="5" fill="#00D73F"/>
+          <circle cx="300" cy="40" r="10" fill="rgba(0,215,63,0.2)"/>
+        </svg>
+
+        <div class="event-stats">
+          <div>
+            <div class="num">128,473</div>
+            <div class="lbl">Devices activated</div>
+          </div>
+          <div>
+            <div class="num">97.2<span style="font-size:0.6em;">%</span></div>
+            <div class="lbl">Response rate</div>
+          </div>
+          <div>
+            <div class="num neutral">4.2<span style="font-size:0.6em;">s</span></div>
+            <div class="lbl">Avg activation</div>
+          </div>
+        </div>
+      </article>
+
+      <div class="perf-side">
+        <div class="reveal delay-1">
+          <div>
+            <div class="num">$847K</div>
+            <div style="font-size:13px;color:var(--hero-fg-muted);margin-top:4px;">Energy cost avoided</div>
+          </div>
+          <div class="lbl">single<br>event</div>
+        </div>
+        <div class="reveal delay-2">
+          <div>
+            <div class="num">$1.2M</div>
+            <div style="font-size:13px;color:var(--hero-fg-muted);margin-top:4px;">Capacity value delivered</div>
+          </div>
+          <div class="lbl">single<br>event</div>
+        </div>
+        <div class="reveal delay-3">
+          <div>
+            <div class="num">$142K</div>
+            <div style="font-size:13px;color:var(--hero-fg-muted);margin-top:4px;">Customer rewards paid</div>
+          </div>
+          <div class="lbl">single<br>event</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ENTERPRISE INTEGRATIONS ============== -->
+<section class="enterprise">
+  <div class="container enterprise-grid">
+    <div>
+      <p class="eyebrow dark reveal">Enterprise-ready</p>
+      <h2 class="display-s reveal delay-1">Built to plug into the systems you already operate.</h2>
+      <p class="lede reveal delay-2">No rip-and-replace. No proprietary lock-in. Optiwatt slots into the operational stack utility IT teams already trust.</p>
+
+      <ul class="enterprise-bullets reveal delay-2">
+        <li>
+          <span class="num">01</span>
+          <div>
+            <h4>DERMS &amp; SCADA</h4>
+            <p>Bi-directional integration with Itron, Siemens Spectrum, GE GridOS, and major DERMS platforms.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div>
+            <h4>OpenADR 2.0b</h4>
+            <p>Certified VEN and VTN support for grid signal exchange and event coordination.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div>
+            <h4>REST &amp; webhook APIs</h4>
+            <p>Real-time telemetry, dispatch control, settlement data — all programmable.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <div>
+            <h4>Billing &amp; settlement</h4>
+            <p>CIS-ready exports for incentive payments, capacity settlement, and regulatory filings.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="soc-card reveal delay-1">
+      <div class="soc-shield">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 4 L34 10 L34 22 C34 30 28 36 20 38 C12 36 6 30 6 22 L6 10 Z"/>
+          <path d="M14 20 L18 24 L26 16" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>SOC 2 Type II certified</h3>
+      <p>Enterprise-grade security across data, infrastructure, and operations. Annual audits, continuous monitoring, full compliance documentation available.</p>
+      <div class="protocol-chips" style="border-top:none;padding-top:0;">
+        <span class="chip">OAuth 2.0</span>
+        <span class="chip">SAML</span>
+        <span class="chip">TLS 1.3</span>
+        <span class="chip">HTTPS</span>
+        <span class="chip">FERPA</span>
+        <span class="chip">CCPA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA STRIP ============== -->
+<section class="cta-strip dark-section" id="cta">
+  <div class="container cta-inner">
+    <div>
+      <h2 class="display-m">See Optiwatt run on your grid.</h2>
+      <p class="cta-sub">A 30-minute walk-through of platform capabilities, integration paths, and program economics — calibrated to your service territory.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="#" class="btn btn-primary btn-arrow">Schedule demo</a>
+      <a href="#" class="btn btn-ghost-light">Talk to sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg style="height:28px;width:auto;color:#F4EFFF;" xmlns="http://www.w3.org/2000/svg" width="115.249" height="25.365" viewBox="0 0 115.249 25.365" fill="none">
+  <path d="M 15.452 13.317 C 15.452 17.759 11.99 20.812 7.756 20.812 C 3.523 20.812 0 17.759 0 13.317 C 0 8.875 3.482 5.853 7.756 5.853 C 12.03 5.853 15.452 8.875 15.452 13.317 Z M 12.518 13.317 C 12.518 10.345 10.223 8.421 7.756 8.421 C 5.289 8.421 2.964 10.355 2.964 13.317 C 2.964 16.279 5.228 18.213 7.756 18.213 C 10.284 18.213 12.518 16.279 12.518 13.317 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 33.564 13.317 C 33.564 17.84 30.193 20.872 26.416 20.872 C 24.234 20.872 22.437 20.127 21.188 18.827 L 21.188 25.365 L 18.162 25.365 L 18.162 6.165 L 21.188 6.165 L 21.188 7.807 C 22.437 6.507 24.234 5.762 26.416 5.762 C 30.193 5.762 33.564 8.814 33.564 13.317 Z M 30.63 13.317 C 30.63 10.315 28.569 8.421 25.929 8.421 C 23.543 8.421 21.198 10.325 21.198 13.317 C 21.198 16.309 23.553 18.213 25.929 18.213 C 28.569 18.213 30.63 16.339 30.63 13.317 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 45.97 19.774 C 44.609 20.58 43.614 20.872 42.396 20.872 C 39.289 20.872 37.198 19.14 37.198 15.594 L 37.198 8.643 L 34.091 8.643 L 34.091 6.165 L 37.198 6.165 L 37.198 1.733 L 40.223 1.733 L 40.223 6.165 L 45.157 6.165 L 45.157 8.643 L 40.223 8.643 L 40.223 15.382 C 40.223 17.165 41.178 18.031 42.609 18.031 C 43.36 18.031 44.294 17.739 45.046 17.256 L 45.98 19.764 L 45.97 19.774 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 51.32 1.874 C 51.32 2.941 50.508 3.717 49.401 3.717 C 48.294 3.717 47.452 2.941 47.452 1.874 C 47.452 0.866 48.264 0 49.401 0 C 50.538 0 51.32 0.866 51.32 1.874 Z M 47.888 20.459 L 47.888 6.165 L 50.914 6.165 L 50.914 20.459 L 47.888 20.459 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 67.147 20.52 L 63.838 10.889 L 60.528 20.52 L 57.767 20.52 L 52.944 6.165 L 55.97 6.165 L 59.249 16.107 L 62.65 6.165 L 65.036 6.165 L 68.437 16.107 L 71.716 6.165 L 74.742 6.165 L 69.919 20.52 L 67.147 20.52 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 90.599 20.459 L 87.583 20.459 L 87.583 18.817 C 86.335 20.117 84.538 20.862 82.355 20.862 C 78.579 20.862 75.208 17.84 75.208 13.307 C 75.208 8.774 78.579 5.752 82.355 5.752 C 84.538 5.752 86.335 6.497 87.583 7.797 L 87.583 6.155 L 90.599 6.155 L 90.599 20.459 Z M 87.583 13.307 C 87.583 10.305 85.228 8.411 82.853 8.411 C 80.213 8.411 78.152 10.315 78.152 13.307 C 78.152 16.299 80.213 18.203 82.853 18.203 C 85.238 18.203 87.583 16.329 87.583 13.307 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 104.233 19.774 C 102.873 20.58 101.878 20.872 100.66 20.872 C 97.553 20.872 95.462 19.14 95.462 15.594 L 95.462 8.643 L 92.355 8.643 L 92.355 6.165 L 95.462 6.165 L 95.462 1.733 L 98.487 1.733 L 98.487 6.165 L 103.422 6.165 L 103.422 8.643 L 98.487 8.643 L 98.487 15.382 C 98.487 17.165 99.442 18.031 100.873 18.031 C 101.625 18.031 102.558 17.739 103.309 17.256 L 104.244 19.764 L 104.233 19.774 Z" fill="currentColor" fill-rule="nonzero"></path>
+  <path d="M 115.238 19.774 C 113.878 20.58 112.883 20.872 111.666 20.872 C 108.558 20.872 106.467 19.14 106.467 15.594 L 106.467 8.643 L 103.36 8.643 L 103.36 6.165 L 106.467 6.165 L 106.467 1.733 L 109.493 1.733 L 109.493 6.165 L 114.427 6.165 L 114.427 8.643 L 109.493 8.643 L 109.493 15.382 C 109.493 17.165 110.447 18.031 111.878 18.031 C 112.629 18.031 113.563 17.739 114.314 17.256 L 115.249 19.764 L 115.238 19.774 Z" fill="currentColor" fill-rule="nonzero"></path>
+</svg>
+        </div>
+        <p>The DER management platform powering utilities and partners across North America.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="index.html">Utilities</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="consumers.html">Consumers</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Case studies</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Standards</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Optiwatt, Inc.</span>
+      <span>SOC 2 Type II · ISO 27001 · CCPA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// reveal-on-scroll
+(function(){
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+})();
+</script>
+
+</body>
+</html>
