@@ -2387,6 +2387,410 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .b-card { padding: 28px; }
 }
 
+/* =========================================================
+   PARTNERS PAGE — Ecosystem hub diagram
+   ========================================================= */
+.ecosystem {
+  background: var(--ow-white);
+  padding: 96px 0 80px;
+}
+.ecosystem-head {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.ecosystem-head h2 { margin: 16px 0 0; }
+
+.hub-diagram {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
+}
+.hub-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+.hub-card {
+  background: var(--ow-white);
+  border: 1px solid var(--ow-grey-200);
+  border-radius: 16px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), border-color var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
+  position: relative;
+}
+.hub-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple-aa);
+  box-shadow: 0 16px 32px -20px rgba(39, 29, 105, 0.18);
+}
+.hub-card .hub-cat {
+  font-family: var(--display-font);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ow-text);
+}
+.hub-card .hub-desc {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ow-text-secondary);
+  line-height: 1.5;
+}
+.hub-card::after {
+  content: "→";
+  position: absolute;
+  top: 22px; right: 22px;
+  font-size: 14px;
+  color: var(--ow-text-secondary);
+  opacity: 0;
+  transition: opacity var(--ow-dur-2, 200ms) ease, transform var(--ow-dur-2, 200ms) ease;
+}
+.hub-card:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.hub-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+.hub-line {
+  width: 1.5px;
+  height: 24px;
+  background: linear-gradient(180deg, rgba(175, 75, 251, 0) 0%, rgba(175, 75, 251, 0.4) 100%);
+  display: block;
+}
+.hub-line-bottom {
+  background: linear-gradient(180deg, rgba(175, 75, 251, 0.4) 0%, rgba(175, 75, 251, 0) 100%);
+}
+.hub-platform {
+  background: linear-gradient(135deg, var(--ow-purple-800), #1A1450);
+  color: var(--hero-fg);
+  border-radius: 18px;
+  padding: 20px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(175, 75, 251, 0.4);
+  box-shadow: 0 20px 40px -16px rgba(39, 29, 105, 0.45);
+  min-width: 280px;
+}
+.hub-platform-label {
+  font-family: var(--display-font);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.hub-platform-sub {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hero-fg-muted);
+}
+
+.hub-services-row {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+.hub-card-wide {
+  max-width: 540px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+/* =========================================================
+   PARTNERS PAGE — Section nav banner
+   ========================================================= */
+.partner-nav {
+  background: var(--ow-purple-100);
+  border-top: 1px solid var(--ow-grey-200);
+  border-bottom: 1px solid var(--ow-grey-200);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.partner-nav-inner {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.partner-nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--ow-white);
+  border: 1px solid var(--ow-grey-200);
+  color: var(--ow-text);
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--ow-dur-2, 200ms) ease, border-color var(--ow-dur-2, 200ms) ease, color var(--ow-dur-2, 200ms) ease;
+}
+.partner-nav-link:hover {
+  background: var(--accent-purple-aa);
+  border-color: var(--accent-purple-aa);
+  color: var(--hero-fg);
+}
+
+/* =========================================================
+   PARTNERS PAGE — Per-category sections (consistent format)
+   ========================================================= */
+.partner-section {
+  padding: 96px 0;
+  background: var(--ow-white);
+  scroll-margin-top: 80px;
+}
+.partner-section-tint { background: var(--ow-purple-100); }
+.partner-section-head {
+  max-width: 760px;
+  margin: 0 0 48px;
+}
+.partner-section-head h2 { margin: 16px 0; }
+.partner-section-head .lede { margin: 0; }
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.partner-grid-2col { grid-template-columns: repeat(2, 1fr); }
+
+.partner-card {
+  background: var(--ow-white);
+  border: 1px solid var(--ow-grey-200);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
+}
+.partner-section-tint .partner-card {
+  background: var(--ow-white);
+  border-color: var(--ow-grey-200);
+}
+.partner-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -20px rgba(39, 29, 105, 0.18);
+}
+.partner-card .pc-num {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent-purple-aa);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.partner-card h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ow-text);
+}
+.partner-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ow-text-secondary);
+}
+
+/* Stat strip below grid (OEMs section) */
+.partner-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  padding: 36px;
+  background: var(--ow-purple-100);
+  border-radius: 20px;
+  border: 1px solid rgba(175, 75, 251, 0.18);
+}
+.ps-stat { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.ps-num {
+  font-family: var(--mono-font);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent-purple-aa);
+}
+.ps-label {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ow-text-secondary);
+  font-weight: 500;
+}
+
+/* Aggregators: 2-col layout (grid left, dark stat strip right) */
+.partner-aggr-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.partner-stat-strip {
+  background: linear-gradient(160deg, var(--ow-purple-800), #1A1450);
+  color: var(--hero-fg);
+  border-radius: 20px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid rgba(175, 75, 251, 0.3);
+  position: sticky;
+  top: 100px;
+}
+.pss-eyebrow {
+  font-family: var(--mono-font);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin: 0;
+  font-weight: 600;
+}
+.pss-stat { display: flex; flex-direction: column; gap: 4px; }
+.pss-num {
+  font-family: var(--mono-font);
+  font-size: clamp(28px, 3.4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--hero-fg);
+}
+.pss-label {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--hero-fg-muted);
+}
+
+/* Implementers: 3-step process row */
+.impl-process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.impl-step {
+  background: var(--ow-white);
+  border: 1px solid rgba(175, 75, 251, 0.18);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.impl-step-num {
+  font-family: var(--display-font);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent-purple-aa);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.impl-step h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ow-text);
+}
+.impl-step p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ow-text-secondary);
+}
+
+/* Contact form select inherits field styling */
+.contact-form .field select {
+  background: var(--ow-white);
+  border: 1px solid var(--ow-grey-300);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--ow-text);
+  font-family: var(--ow-font-sans);
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%235D5D5D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+.contact-form .field select:focus {
+  outline: none;
+  border-color: var(--accent-green-aa);
+}
+
+/* Responsive — partners */
+@media (max-width: 1100px) {
+  .partner-grid, .partner-grid-2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .partner-aggr-layout {
+    grid-template-columns: 1fr;
+  }
+  .partner-stat-strip {
+    position: static;
+  }
+}
+@media (max-width: 720px) {
+  .hub-row {
+    grid-template-columns: 1fr;
+  }
+  .partner-grid, .partner-grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .partner-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .impl-process {
+    grid-template-columns: 1fr;
+  }
+  .partner-nav-inner {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  .ecosystem, .partner-section {
+    padding: 56px 0;
+  }
+}
+
 </style>
 </head>
 <body class="has-banner">
@@ -2416,7 +2820,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
     <nav>
       <ul class="nav-links">
         <li><a href="index.html" class="is-active">Utilities</a></li>
-        <li><span class="nav-disabled">Partners</span></li>
+        <li><a href="partners.html">Partners</a></li>
         <li><span class="nav-disabled">Consumers</span></li>
       </ul>
     </nav>
