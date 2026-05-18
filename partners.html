@@ -2466,6 +2466,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
   padding: 8px 0;
 }
 .hub-line {
@@ -2504,31 +2505,65 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   color: var(--hero-fg-muted);
 }
 
-.hub-services-row {
+/* Implementers card — sits inline with the platform as a service-layer ring around it */
+.hub-implementers {
+  background: var(--ow-white);
+  border: 1.5px dashed rgba(175, 75, 251, 0.35);
+  border-radius: 16px;
+  padding: 16px 24px;
   display: flex;
-  justify-content: center;
-  padding-top: 12px;
-}
-.hub-card-wide {
-  max-width: 540px;
-  width: 100%;
-  text-align: center;
+  flex-direction: column;
   align-items: center;
+  gap: 4px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  max-width: 540px;
+  transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), border-color var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
+}
+.hub-implementers:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple-aa);
+  border-style: solid;
+  box-shadow: 0 16px 32px -20px rgba(39, 29, 105, 0.18);
+}
+.hub-implementers-tag {
+  font-family: var(--mono-font);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-purple-aa);
+  font-weight: 600;
+}
+.hub-implementers .hub-cat {
+  font-family: var(--display-font);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ow-text);
+}
+.hub-implementers .hub-desc {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ow-text-secondary);
+  line-height: 1.5;
 }
 
 /* =========================================================
    PARTNERS PAGE — Section nav banner
    ========================================================= */
 .partner-nav {
-  background: var(--ow-purple-100);
-  border-top: 1px solid var(--ow-grey-200);
-  border-bottom: 1px solid var(--ow-grey-200);
+  background: var(--ow-purple-800);
+  border-top: 1px solid rgba(175, 75, 251, 0.25);
+  border-bottom: 1px solid rgba(175, 75, 251, 0.25);
   padding: 16px 0;
   position: sticky;
   top: 0;
   z-index: 50;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.25);
 }
 .partner-nav-inner {
   display: flex;
@@ -2544,9 +2579,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   align-items: center;
   padding: 8px 16px;
   border-radius: 999px;
-  background: var(--ow-white);
-  border: 1px solid var(--ow-grey-200);
-  color: var(--ow-text);
+  background: rgba(244, 239, 255, 0.08);
+  border: 1px solid rgba(244, 239, 255, 0.2);
+  color: var(--hero-fg);
   font-family: var(--mono-font);
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -2557,9 +2592,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   transition: background var(--ow-dur-2, 200ms) ease, border-color var(--ow-dur-2, 200ms) ease, color var(--ow-dur-2, 200ms) ease;
 }
 .partner-nav-link:hover {
-  background: var(--accent-purple-aa);
-  border-color: var(--accent-purple-aa);
-  color: var(--hero-fg);
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: #0A1A0E;
 }
 
 /* =========================================================
@@ -2713,12 +2748,12 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   gap: 8px;
 }
 .impl-step-num {
-  font-family: var(--display-font);
-  font-size: 36px;
-  font-weight: 800;
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
   color: var(--accent-purple-aa);
-  letter-spacing: -0.02em;
-  line-height: 1;
+  margin-bottom: 2px;
 }
 .impl-step h3 {
   margin: 0;
@@ -2837,10 +2872,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
     <div class="hero-copy">
       <p class="eyebrow hero-eyebrow reveal in">For technology &amp; service partners</p>
       <h1 class="display-xl reveal delay-1 in">Partner with the VPP platform utilities and consumers love.</h1>
-      <p class="lede reveal delay-2 in">Unlock scale, new capabilities, and grid-edge impact. We partner with top technology firms, OEMs, and service providers to make a platform that turns DERs into verified, dispatchable load.</p>
+      <p class="lede reveal delay-2 in">Reach more customer devices and programs to scale your VPP business. We partner with OEMs, DERMS, data and service providers to shift load at scale.</p>
       <div class="hero-ctas reveal delay-3 in">
         <a href="#cta" class="btn btn-primary btn-arrow">Become a partner</a>
-        <a href="#partner-types" class="btn btn-ghost-light">How to integrate</a>
       </div>
     </div>
   </div>
@@ -2876,6 +2910,11 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
           <span class="hub-platform-label">Optiwatt Platform</span>
           <span class="hub-platform-sub">VPP optimization · Device control · Engagement</span>
         </div>
+        <a href="#implementers" class="hub-implementers">
+          <span class="hub-implementers-tag">Service layer</span>
+          <span class="hub-cat">Utility Program Implementors &amp; Consultants</span>
+          <span class="hub-desc">Turnkey deployment partners that bring Optiwatt to your service territory.</span>
+        </a>
         <span class="hub-line hub-line-bottom"></span>
       </div>
 
@@ -2891,13 +2930,6 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
         <a href="#research" class="hub-card">
           <span class="hub-cat">M&amp;V · Research &amp; Planning</span>
           <span class="hub-desc">Consultants · Researchers · Planners</span>
-        </a>
-      </div>
-
-      <div class="hub-services-row">
-        <a href="#implementers" class="hub-card hub-card-wide">
-          <span class="hub-cat">Utility Program Implementors &amp; Consultants</span>
-          <span class="hub-desc">Turnkey deployment partners that bring Optiwatt to your service territory.</span>
         </a>
       </div>
     </div>
@@ -2922,25 +2954,18 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For device manufacturers</p>
-      <h2 class="display-s reveal delay-1">Make your devices grid-interactive.</h2>
+      <h2 class="display-s reveal delay-1">Make it easy for customers to support their local grid.</h2>
       <p class="lede reveal delay-2">Turn your hardware into revenue-generating DERs for utility programs — with branded experiences your customers already trust.</p>
     </div>
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
-        <span class="pc-num">01</span>
         <h3>Energy market access</h3>
         <p>Access to 30+ utility programs enabling participation and monetization of over 50% of your DERs.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">02</span>
         <h3>New revenue opportunities</h3>
         <p>Open new device-revenue streams from demand response, peak shaving, and capacity programs your customers enroll in.</p>
-      </div>
-      <div class="partner-card">
-        <span class="pc-num">03</span>
-        <h3>White-labeled integration</h3>
-        <p>Maintain a fully branded and controlled experience in your platform to preserve customer experience.</p>
       </div>
     </div>
 
@@ -2948,10 +2973,6 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
       <div class="ps-stat">
         <span class="ps-num">30+</span>
         <span class="ps-label">Utility programs available</span>
-      </div>
-      <div class="ps-stat">
-        <span class="ps-num">50%+</span>
-        <span class="ps-label">DERs monetizable</span>
       </div>
       <div class="ps-stat">
         <span class="ps-num">27</span>
@@ -2966,23 +2987,20 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For edge DERMS vendors</p>
-      <h2 class="display-s reveal delay-1">Plug into a node-ready DER management layer.</h2>
+      <h2 class="display-s reveal delay-1">Bring more vehicles and chargers to your platform.</h2>
       <p class="lede reveal delay-2">Integrate Optiwatt as a node in your DERMS architecture and exchange enrollment, eligibility, load management, telemetry, and performance data over standard APIs.</p>
     </div>
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
-        <span class="pc-num">01</span>
         <h3>Bi-directional APIs</h3>
         <p>Real-time data exchange with REST endpoints. Enrollment, telemetry, and dispatch flow both ways.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">02</span>
         <h3>DERMS architecture node</h3>
         <p>Integrate Optiwatt as a node within your DERMS — seamless exchange of enrollment, eligibility, load management, telemetry, and performance data.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">03</span>
         <h3>Load orchestration</h3>
         <p>Dispatch load orchestration signals to Optiwatt's platform and devices in concert with broader DERs and loads.</p>
       </div>
@@ -3001,22 +3019,18 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
-        <span class="pc-num">01</span>
         <h3>Weather feeds</h3>
         <p>Forecast data informs thermostat pre-cooling, EV charging windows, and demand prediction.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">02</span>
         <h3>Grid carbon intensity</h3>
         <p>Carbon signals drive GHG-optimized dispatch — shifting load to low-carbon hours.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">03</span>
         <h3>Pricing signals</h3>
         <p>Wholesale market signals (CAISO and others) inform price-arbitrage dispatch decisions.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">04</span>
         <h3>Mapping &amp; geolocation</h3>
         <p>Geospatial data supports feeder-level targeting and distribution-system relief.</p>
       </div>
@@ -3029,29 +3043,25 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For aggregators &amp; VPP operators</p>
-      <h2 class="display-s reveal delay-1">Scale your virtual power plant on enrolled DERs that respond.</h2>
+      <h2 class="display-s reveal delay-1">Generate more revenue with more devices.</h2>
       <p class="lede reveal delay-2">Optiwatt manages the consumer-facing experience while you focus on market optimization — turnkey DER enrollment and dispatch.</p>
     </div>
 
     <div class="partner-aggr-layout">
       <div class="partner-grid partner-grid-2col reveal delay-2">
         <div class="partner-card">
-          <span class="pc-num">01</span>
           <h3>Aggregated capacity</h3>
           <p>Access enrolled DERs across utility programs Optiwatt operates, ready for dispatch.</p>
         </div>
         <div class="partner-card">
-          <span class="pc-num">02</span>
           <h3>Program management</h3>
           <p>White-label enrollment, customer engagement, and retention tools. Automated incentive processing.</p>
         </div>
         <div class="partner-card">
-          <span class="pc-num">03</span>
           <h3>Market participation</h3>
           <p>Coordinate dispatch with aggregator partners for wholesale energy, capacity, and ancillary service markets.</p>
         </div>
         <div class="partner-card">
-          <span class="pc-num">04</span>
           <h3>Portfolio analytics</h3>
           <p>Track performance, availability, and revenue attribution across distributed asset portfolios with granular telemetry.</p>
         </div>
@@ -3066,10 +3076,6 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
         <div class="pss-stat">
           <span class="pss-num">1.3+ GWh</span>
           <span class="pss-label">Cumulative load shifted</span>
-        </div>
-        <div class="pss-stat">
-          <span class="pss-num">36</span>
-          <span class="pss-label">Utility partner programs</span>
         </div>
       </aside>
     </div>
@@ -3087,17 +3093,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
-        <span class="pc-num">01</span>
         <h3>Open APIs</h3>
         <p>Standards-aligned APIs into utility DERMS — telemetry up, dispatch signals down.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">02</span>
         <h3>Bi-directional data exchange</h3>
         <p>Real-time telemetry flows into utility systems; dispatch and program signals flow back to devices.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">03</span>
         <h3>Co-deployment</h3>
         <p>Joint engineering and deployment support with platform partners to accelerate utility rollouts.</p>
       </div>
@@ -3134,17 +3137,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
     <div class="partner-grid reveal delay-3">
       <div class="partner-card">
-        <span class="pc-num">01</span>
         <h3>Turnkey software solutions</h3>
         <p>Pre-built integrations and compliance frameworks reduce implementation risk and time-to-deploy.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">02</span>
         <h3>Accelerated time-to-market</h3>
         <p>Launch utility DER programs in weeks, not quarters — without building software from scratch.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">03</span>
         <h3>New revenue streams</h3>
         <p>Create service offerings around DER management, customer engagement, and program administration for utility clients.</p>
       </div>
@@ -3163,17 +3163,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
-        <span class="pc-num">01</span>
         <h3>DER load insights</h3>
         <p>Granular device-level load and event-response data to characterize DER behavior across populations and seasons.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">02</span>
         <h3>Robust data access</h3>
         <p>Anonymous, aggregated DER performance datasets — load profiles, event response, and customer engagement metrics.</p>
       </div>
       <div class="partner-card">
-        <span class="pc-num">03</span>
         <h3>Load management sandbox</h3>
         <p>Field-trial environment for novel control algorithms, customer engagement strategies, and emerging technologies.</p>
       </div>
