@@ -2388,7 +2388,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 
 /* =========================================================
-   PARTNERS PAGE — Ecosystem hub diagram
+   PARTNERS PAGE — Ecosystem section wrapper
    ========================================================= */
 .ecosystem {
   background: var(--ow-white);
@@ -2401,157 +2401,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .ecosystem-head h2 { margin: 16px 0 0; }
 
-.hub-diagram {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: stretch;
-}
-.hub-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 18px;
-}
-.hub-card {
-  background: var(--ow-white);
-  border: 1px solid var(--ow-grey-200);
-  border-radius: 16px;
-  padding: 22px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), border-color var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
-  position: relative;
-}
-.hub-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-purple-aa);
-  box-shadow: 0 16px 32px -20px rgba(39, 29, 105, 0.18);
-}
-.hub-card .hub-cat {
-  font-family: var(--display-font);
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--ow-text);
-}
-.hub-card .hub-desc {
-  font-family: var(--mono-font);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--ow-text-secondary);
-  line-height: 1.5;
-}
-.hub-card::after {
-  content: "→";
-  position: absolute;
-  top: 22px; right: 22px;
-  font-size: 14px;
-  color: var(--ow-text-secondary);
-  opacity: 0;
-  transition: opacity var(--ow-dur-2, 200ms) ease, transform var(--ow-dur-2, 200ms) ease;
-}
-.hub-card:hover::after {
-  opacity: 1;
-  transform: translateX(2px);
-}
-
-.hub-center {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 8px 0;
-}
-.hub-line {
-  width: 1.5px;
-  height: 24px;
-  background: linear-gradient(180deg, rgba(175, 75, 251, 0) 0%, rgba(175, 75, 251, 0.4) 100%);
-  display: block;
-}
-.hub-line-bottom {
-  background: linear-gradient(180deg, rgba(175, 75, 251, 0.4) 0%, rgba(175, 75, 251, 0) 100%);
-}
-.hub-platform {
-  background: linear-gradient(135deg, var(--ow-purple-800), #1A1450);
-  color: var(--hero-fg);
-  border-radius: 18px;
-  padding: 20px 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid rgba(175, 75, 251, 0.4);
-  box-shadow: 0 20px 40px -16px rgba(39, 29, 105, 0.45);
-  min-width: 280px;
-}
-.hub-platform-label {
-  font-family: var(--display-font);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-.hub-platform-sub {
-  font-family: var(--mono-font);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--hero-fg-muted);
-}
-
-/* Implementers card — sits inline with the platform as a service-layer ring around it */
-.hub-implementers {
-  background: var(--ow-white);
-  border: 1.5px dashed rgba(175, 75, 251, 0.35);
-  border-radius: 16px;
-  padding: 16px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  max-width: 540px;
-  transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), border-color var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
-}
-.hub-implementers:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-purple-aa);
-  border-style: solid;
-  box-shadow: 0 16px 32px -20px rgba(39, 29, 105, 0.18);
-}
-.hub-implementers-tag {
-  font-family: var(--mono-font);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent-purple-aa);
-  font-weight: 600;
-}
-.hub-implementers .hub-cat {
-  font-family: var(--display-font);
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: var(--ow-text);
-}
-.hub-implementers .hub-desc {
-  font-family: var(--mono-font);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--ow-text-secondary);
-  line-height: 1.5;
-}
-
 /* =========================================================
-   PARTNERS PAGE — Section nav banner
+   PARTNERS PAGE — Sticky section nav banner
    ========================================================= */
 .partner-nav {
   background: var(--ow-purple-800);
@@ -2598,7 +2449,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 
 /* =========================================================
-   PARTNERS PAGE — Per-category sections (consistent format)
+   PARTNERS PAGE — Per-category sections
    ========================================================= */
 .partner-section {
   padding: 96px 0;
@@ -2629,10 +2480,6 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   gap: 8px;
   transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
-}
-.partner-section-tint .partner-card {
-  background: var(--ow-white);
-  border-color: var(--ow-grey-200);
 }
 .partner-card:hover {
   transform: translateY(-2px);
@@ -2730,46 +2577,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   color: var(--hero-fg-muted);
 }
 
-/* Implementers: 3-step process row */
-.impl-process {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-bottom: 48px;
-  position: relative;
-}
-.impl-step {
-  background: var(--ow-white);
-  border: 1px solid rgba(175, 75, 251, 0.18);
-  border-radius: 16px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.impl-step-num {
-  font-family: var(--mono-font);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  font-weight: 600;
-  color: var(--accent-purple-aa);
-  margin-bottom: 2px;
-}
-.impl-step h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ow-text);
-}
-.impl-step p {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--ow-text-secondary);
-}
-
-/* Contact form select inherits field styling */
+/* Contact form select (partner-type dropdown) */
 .contact-form .field select {
   background: var(--ow-white);
   border: 1px solid var(--ow-grey-300);
@@ -2791,7 +2599,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   border-color: var(--accent-green-aa);
 }
 
-/* Responsive — partners */
+/* Responsive — partner sections */
 @media (max-width: 1100px) {
   .partner-grid, .partner-grid-2col {
     grid-template-columns: repeat(2, 1fr);
@@ -2804,18 +2612,12 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   }
 }
 @media (max-width: 720px) {
-  .hub-row {
-    grid-template-columns: 1fr;
-  }
   .partner-grid, .partner-grid-2col {
     grid-template-columns: 1fr;
   }
   .partner-stats {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  .impl-process {
-    grid-template-columns: 1fr;
   }
   .partner-nav-inner {
     justify-content: flex-start;
@@ -2824,6 +2626,104 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .ecosystem, .partner-section {
     padding: 56px 0;
   }
+}
+
+/* =========================================================
+   PARTNERS PAGE — Ecosystem LIST format (replaces hub diagram)
+   ========================================================= */
+.ecosystem-list {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.eco-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: var(--ow-white);
+  border: 1px solid var(--ow-grey-200);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--ow-dur-2, 200ms) var(--ow-ease, ease), border-color var(--ow-dur-2, 200ms) var(--ow-ease, ease), box-shadow var(--ow-dur-2, 200ms) var(--ow-ease, ease);
+}
+.eco-item:hover {
+  transform: translateX(4px);
+  border-color: var(--accent-purple-aa);
+  box-shadow: 0 16px 32px -22px rgba(39, 29, 105, 0.22);
+}
+.eco-icon {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(175, 75, 251, 0.1);
+  color: var(--accent-purple-aa);
+  display: grid;
+  place-items: center;
+}
+.eco-icon svg {
+  width: 22px; height: 22px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.eco-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.eco-cat {
+  font-family: var(--display-font);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ow-text);
+}
+.eco-desc {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ow-text-secondary);
+  line-height: 1.5;
+}
+.eco-arrow {
+  font-size: 18px;
+  color: var(--ow-text-secondary);
+  flex-shrink: 0;
+  transition: transform var(--ow-dur-2, 200ms) ease, color var(--ow-dur-2, 200ms) ease;
+}
+.eco-item:hover .eco-arrow {
+  color: var(--accent-purple-aa);
+  transform: translateX(3px);
+}
+
+/* Value-prop card icons (partner sections) */
+.partner-card .pc-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(175, 75, 251, 0.12);
+  color: var(--accent-purple-aa);
+  display: grid;
+  place-items: center;
+  margin-bottom: 4px;
+}
+.partner-card .pc-icon svg {
+  width: 18px; height: 18px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 720px) {
+  .ecosystem-list { grid-template-columns: 1fr; }
+  .eco-item { padding: 16px 18px; gap: 14px; }
+  .eco-icon { width: 38px; height: 38px; }
+  .eco-icon svg { width: 19px; height: 19px; }
 }
 
 </style>
@@ -2880,58 +2780,80 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   </div>
 </section>
 
-<!-- ============== ECOSYSTEM HUB ============== -->
+<!-- ============== ECOSYSTEM LIST ============== -->
 <section class="ecosystem">
   <div class="container">
     <div class="ecosystem-head">
       <p class="eyebrow dark no-rule reveal" style="justify-content:center;display:flex;">Our partner ecosystem</p>
-      <h2 class="display-s reveal delay-1">Optiwatt connects the DER stack — end to end.</h2>
+      <h2 class="display-s reveal delay-1">One platform across the partners that power the grid.</h2>
     </div>
 
-    <div class="hub-diagram reveal delay-2">
-      <div class="hub-row hub-row-input">
-        <a href="#oems" class="hub-card">
-          <span class="hub-cat">OEMs</span>
-          <span class="hub-desc">Vehicles · Chargers · Thermostats · Batteries · Solar</span>
-        </a>
-        <a href="#edge-derms" class="hub-card">
-          <span class="hub-cat">Edge DERMS</span>
-          <span class="hub-desc">Uplight · Lunar</span>
-        </a>
-        <a href="#data" class="hub-card">
-          <span class="hub-cat">Data</span>
-          <span class="hub-desc">Weather · GHG intensity · Mapping · Pricing</span>
-        </a>
-      </div>
+    <div class="ecosystem-list reveal delay-2">
+      <a href="#oems" class="eco-item">
+        <span class="eco-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="7" rx="2"/><path d="M6 11V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg>
+        </span>
+        <span class="eco-text">
+          <span class="eco-cat">OEMs</span>
+          <span class="eco-desc">Vehicles · Chargers · Thermostats · Batteries · Solar</span>
+        </span>
+        <span class="eco-arrow" aria-hidden="true">→</span>
+      </a>
 
-      <div class="hub-center" aria-hidden="true">
-        <span class="hub-line hub-line-top"></span>
-        <div class="hub-platform">
-          <span class="hub-platform-label">Optiwatt Platform</span>
-          <span class="hub-platform-sub">VPP optimization · Device control · Engagement</span>
-        </div>
-        <a href="#implementers" class="hub-implementers">
-          <span class="hub-implementers-tag">Service layer</span>
-          <span class="hub-cat">Utility Program Implementors &amp; Consultants</span>
-          <span class="hub-desc">Turnkey deployment partners that bring Optiwatt to your service territory.</span>
-        </a>
-        <span class="hub-line hub-line-bottom"></span>
-      </div>
+      <a href="#edge-derms" class="eco-item">
+        <span class="eco-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M9.5 10.5 6.2 7.3M14.5 10.5l3.3-3.2M9.5 13.5l-3.3 3.2M14.5 13.5l3.3 3.2"/></svg>
+        </span>
+        <span class="eco-text">
+          <span class="eco-cat">Edge DERMS</span>
+          <span class="eco-desc">Uplight · Lunar</span>
+        </span>
+        <span class="eco-arrow" aria-hidden="true">→</span>
+      </a>
 
-      <div class="hub-row hub-row-output">
-        <a href="#aggregators" class="hub-card">
-          <span class="hub-cat">Aggregators</span>
-          <span class="hub-desc">Voltus · Leap</span>
-        </a>
-        <a href="#grid-derms" class="hub-card">
-          <span class="hub-cat">Grid DERMS</span>
-          <span class="hub-desc">GE Vernova · Parsons</span>
-        </a>
-        <a href="#research" class="hub-card">
-          <span class="hub-cat">M&amp;V · Research &amp; Planning</span>
-          <span class="hub-desc">Consultants · Researchers · Planners</span>
-        </a>
-      </div>
+      <a href="#aggregators" class="eco-item">
+        <span class="eco-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 17 L9 11 L13 15 L21 7"/><path d="M15 7 L21 7 L21 13"/></svg>
+        </span>
+        <span class="eco-text">
+          <span class="eco-cat">Aggregators</span>
+          <span class="eco-desc">Voltus · Leap</span>
+        </span>
+        <span class="eco-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="#grid-derms" class="eco-item">
+        <span class="eco-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2 L4 7 L4 17 L12 22 L20 17 L20 7 Z"/><path d="M12 2 L12 22M4 7 L20 17M20 7 L4 17"/></svg>
+        </span>
+        <span class="eco-text">
+          <span class="eco-cat">Grid DERMS</span>
+          <span class="eco-desc">GE Vernova · Parsons</span>
+        </span>
+        <span class="eco-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="#implementers" class="eco-item">
+        <span class="eco-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4l-5.6 5.6a2 2 0 0 0 2.8 2.8l5.6-5.6a4 4 0 0 1 5.4-5.4l-2.5 2.5-2.1-2.1z"/></svg>
+        </span>
+        <span class="eco-text">
+          <span class="eco-cat">Program Implementers</span>
+          <span class="eco-desc">Consultants · System integrators · Turnkey deployment partners</span>
+        </span>
+        <span class="eco-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="#research" class="eco-item">
+        <span class="eco-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg>
+        </span>
+        <span class="eco-text">
+          <span class="eco-cat">M&amp;V, Research &amp; Planning Providers</span>
+          <span class="eco-desc">Consultants · Researchers · Planners</span>
+        </span>
+        <span class="eco-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -2941,7 +2863,6 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container partner-nav-inner">
     <a href="#oems" class="partner-nav-link">OEMs</a>
     <a href="#edge-derms" class="partner-nav-link">Edge DERMS</a>
-    <a href="#data" class="partner-nav-link">Data</a>
     <a href="#aggregators" class="partner-nav-link">Aggregators</a>
     <a href="#grid-derms" class="partner-nav-link">Grid DERMS</a>
     <a href="#implementers" class="partner-nav-link">Implementers</a>
@@ -2954,16 +2875,22 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For device manufacturers</p>
-      <h2 class="display-s reveal delay-1">Make it easy for customers to support their local grid.</h2>
-      <p class="lede reveal delay-2">Turn your hardware into revenue-generating DERs for utility programs — with branded experiences your customers already trust.</p>
+      <h2 class="display-s reveal delay-1">Turn the devices you sell into a revenue stream.</h2>
+      <p class="lede reveal delay-2">Connect your devices to 30+ utility programs and monetize participation — no new hardware, no program-by-program integration work.</p>
     </div>
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </span>
         <h3>Energy market access</h3>
-        <p>Access to 30+ utility programs enabling participation and monetization of over 50% of your DERs.</p>
+        <p>Access to 30+ utility programs enabling participation and monetization of your connected DERs.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 17 L9 11 L13 15 L21 7"/><path d="M15 7 L21 7 L21 13"/></svg>
+        </span>
         <h3>New revenue opportunities</h3>
         <p>Open new device-revenue streams from demand response, peak shaving, and capacity programs your customers enroll in.</p>
       </div>
@@ -2987,20 +2914,29 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For edge DERMS vendors</p>
-      <h2 class="display-s reveal delay-1">Bring more vehicles and chargers to your platform.</h2>
-      <p class="lede reveal delay-2">Integrate Optiwatt as a node in your DERMS architecture and exchange enrollment, eligibility, load management, telemetry, and performance data over standard APIs.</p>
+      <h2 class="display-s reveal delay-1">Bring more devices and capabilities to your platform.</h2>
+      <p class="lede reveal delay-2">Integrate Optiwatt as a node in your DERMS architecture to expand the devices you manage and the capabilities you offer — exchanging enrollment, eligibility, load management, telemetry, and performance data over standard APIs.</p>
     </div>
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 3 L4 7 L8 11"/><path d="M16 13 L20 17 L16 21"/><path d="M4 7 L20 7"/><path d="M4 17 L20 17"/></svg>
+        </span>
         <h3>Bi-directional APIs</h3>
         <p>Real-time data exchange with REST endpoints. Enrollment, telemetry, and dispatch flow both ways.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M9.5 10.5 6.5 7.5M14.5 13.5l3 3"/></svg>
+        </span>
         <h3>DERMS architecture node</h3>
         <p>Integrate Optiwatt as a node within your DERMS — seamless exchange of enrollment, eligibility, load management, telemetry, and performance data.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 16 Q 7 16 9 12 Q 11 8 13 12 Q 15 16 17 14 Q 19 12 21 14"/><path d="M3 20 L21 20"/></svg>
+        </span>
         <h3>Load orchestration</h3>
         <p>Dispatch load orchestration signals to Optiwatt's platform and devices in concert with broader DERs and loads.</p>
       </div>
@@ -3008,38 +2944,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   </div>
 </section>
 
-<!-- ============== SECTION: DATA ============== -->
-<section class="partner-section" id="data">
-  <div class="container">
-    <div class="partner-section-head">
-      <p class="eyebrow dark reveal">For data &amp; signal providers</p>
-      <h2 class="display-s reveal delay-1">Power smarter dispatch with your data.</h2>
-      <p class="lede reveal delay-2">Feed the optimization engine that shapes device-level dispatch — your data drives decisions across tens of thousands of DERs.</p>
-    </div>
-
-    <div class="partner-grid reveal delay-2">
-      <div class="partner-card">
-        <h3>Weather feeds</h3>
-        <p>Forecast data informs thermostat pre-cooling, EV charging windows, and demand prediction.</p>
-      </div>
-      <div class="partner-card">
-        <h3>Grid carbon intensity</h3>
-        <p>Carbon signals drive GHG-optimized dispatch — shifting load to low-carbon hours.</p>
-      </div>
-      <div class="partner-card">
-        <h3>Pricing signals</h3>
-        <p>Wholesale market signals (CAISO and others) inform price-arbitrage dispatch decisions.</p>
-      </div>
-      <div class="partner-card">
-        <h3>Mapping &amp; geolocation</h3>
-        <p>Geospatial data supports feeder-level targeting and distribution-system relief.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============== SECTION: AGGREGATORS ============== -->
-<section class="partner-section partner-section-tint" id="aggregators">
+<section class="partner-section" id="aggregators">
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For aggregators &amp; VPP operators</p>
@@ -3050,18 +2956,30 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
     <div class="partner-aggr-layout">
       <div class="partner-grid partner-grid-2col reveal delay-2">
         <div class="partner-card">
+          <span class="pc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><circle cx="12" cy="16" r="3"/><path d="M9.5 8.5 11 13.5M14.5 8.5 13 13.5"/></svg>
+          </span>
           <h3>Aggregated capacity</h3>
           <p>Access enrolled DERs across utility programs Optiwatt operates, ready for dispatch.</p>
         </div>
         <div class="partner-card">
+          <span class="pc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h2M8 17h6"/></svg>
+          </span>
           <h3>Program management</h3>
-          <p>White-label enrollment, customer engagement, and retention tools. Automated incentive processing.</p>
+          <p>Enrollment, engagement, and retention through the Optiwatt app, with automated incentive processing.</p>
         </div>
         <div class="partner-card">
+          <span class="pc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 17 L9 11 L13 15 L21 7"/><path d="M15 7 L21 7 L21 13"/></svg>
+          </span>
           <h3>Market participation</h3>
           <p>Coordinate dispatch with aggregator partners for wholesale energy, capacity, and ancillary service markets.</p>
         </div>
         <div class="partner-card">
+          <span class="pc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+          </span>
           <h3>Portfolio analytics</h3>
           <p>Track performance, availability, and revenue attribution across distributed asset portfolios with granular telemetry.</p>
         </div>
@@ -3083,7 +3001,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 </section>
 
 <!-- ============== SECTION: GRID DERMS ============== -->
-<section class="partner-section" id="grid-derms">
+<section class="partner-section partner-section-tint" id="grid-derms">
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For grid-side DERMS &amp; utility systems</p>
@@ -3093,14 +3011,23 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 3 L4 7 L8 11"/><path d="M16 13 L20 17 L16 21"/><path d="M4 7 L20 7"/><path d="M4 17 L20 17"/></svg>
+        </span>
         <h3>Open APIs</h3>
         <p>Standards-aligned APIs into utility DERMS — telemetry up, dispatch signals down.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M7 4 L3 8 L7 12"/><path d="M3 8 L21 8"/><path d="M17 12 L21 16 L17 20"/><path d="M21 16 L3 16"/></svg>
+        </span>
         <h3>Bi-directional data exchange</h3>
         <p>Real-time telemetry flows into utility systems; dispatch and program signals flow back to devices.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="16" r="3"/><path d="M8 11v2a3 3 0 0 0 3 3h2"/></svg>
+        </span>
         <h3>Co-deployment</h3>
         <p>Joint engineering and deployment support with platform partners to accelerate utility rollouts.</p>
       </div>
@@ -3109,7 +3036,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 </section>
 
 <!-- ============== SECTION: IMPLEMENTERS ============== -->
-<section class="partner-section partner-section-tint" id="implementers">
+<section class="partner-section" id="implementers">
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For utility program implementors &amp; consultants</p>
@@ -3117,34 +3044,25 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
       <p class="lede reveal delay-2">Partner with Optiwatt to deliver turnkey DER program solutions. Our platform and expertise complement your services.</p>
     </div>
 
-    <div class="impl-process reveal delay-2">
-      <div class="impl-step">
-        <span class="impl-step-num">01</span>
-        <h3>Discovery &amp; planning</h3>
-        <p>Assess utility requirements, existing infrastructure, and program goals. Define technical architecture and integration scope.</p>
-      </div>
-      <div class="impl-step">
-        <span class="impl-step-num">02</span>
-        <h3>Integration &amp; deployment</h3>
-        <p>Configure Optiwatt with custom branding, program rules, and rate structures. Deploy pilot with select customer cohort.</p>
-      </div>
-      <div class="impl-step">
-        <span class="impl-step-num">03</span>
-        <h3>Scale &amp; optimize</h3>
-        <p>Expand enrollment, tune event dispatch strategies, and measure program performance. Ongoing support and enhancement.</p>
-      </div>
-    </div>
-
-    <div class="partner-grid reveal delay-3">
+    <div class="partner-grid reveal delay-2">
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M7 14l3 3 5-6"/></svg>
+        </span>
         <h3>Turnkey software solutions</h3>
         <p>Pre-built integrations and compliance frameworks reduce implementation risk and time-to-deploy.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M13 2 L4 14 L12 14 L11 22 L20 10 L12 10 Z"/></svg>
+        </span>
         <h3>Accelerated time-to-market</h3>
         <p>Launch utility DER programs in weeks, not quarters — without building software from scratch.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </span>
         <h3>New revenue streams</h3>
         <p>Create service offerings around DER management, customer engagement, and program administration for utility clients.</p>
       </div>
@@ -3153,24 +3071,33 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 </section>
 
 <!-- ============== SECTION: RESEARCH AND PLANNING ============== -->
-<section class="partner-section" id="research">
+<section class="partner-section partner-section-tint" id="research">
   <div class="container">
     <div class="partner-section-head">
       <p class="eyebrow dark reveal">For consultants, researchers, and planners</p>
-      <h2 class="display-s reveal delay-1">Advance DER management through data, planning, and pilots.</h2>
-      <p class="lede reveal delay-2">Partner with us to study grid impacts, customer behavior, and emerging technologies — and inform long-horizon planning with real-world DER data.</p>
+      <h2 class="display-s reveal delay-1">Advance grid innovation through data, planning, and evaluation.</h2>
+      <p class="lede reveal delay-2">Partner with us to study grid impacts, customer behavior, and emerging load-management strategies — informed by real-world DER data.</p>
     </div>
 
     <div class="partner-grid reveal delay-2">
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 2 4-6"/></svg>
+        </span>
         <h3>DER load insights</h3>
         <p>Granular device-level load and event-response data to characterize DER behavior across populations and seasons.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        </span>
         <h3>Robust data access</h3>
         <p>Anonymous, aggregated DER performance datasets — load profiles, event response, and customer engagement metrics.</p>
       </div>
       <div class="partner-card">
+        <span class="pc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-4 9a2 2 0 0 0 2 3h8a2 2 0 0 0 2-3l-4-9V3"/><path d="M7.5 15h9"/></svg>
+        </span>
         <h3>Load management sandbox</h3>
         <p>Field-trial environment for novel control algorithms, customer engagement strategies, and emerging technologies.</p>
       </div>
@@ -3218,12 +3145,12 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
         </select>
       </div>
       <div class="field">
-        <label for="cf-msg">What are you trying to integrate?</label>
+        <label for="cf-msg">What are you trying to accomplish?</label>
         <textarea id="cf-msg" name="message" placeholder="Tell us about your product or services, the kind of integration you're imagining, and any utilities you're already working with."></textarea>
       </div>
       <button type="submit">Start a conversation →</button>
       <p id="form-status" class="sr-only" role="status" aria-live="polite"></p>
-      <p class="form-foot">No marketing spam, ever</p>
+      <p class="form-foot">A member of our partnerships team will follow up personally.</p>
     </form>
   </div>
 </section>
