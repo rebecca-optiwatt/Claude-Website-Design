@@ -1,0 +1,361 @@
+/* =========================================================
+   Optiwatt Design System — Tokens
+   Source: Figma "Optiwatt — Design System"
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;700&display=swap");
+
+:root {
+  /* ---------- Color: Neutrals ---------- */
+  --ow-white:       #FFFFFF;
+  --ow-grey-100:    #F2F2F2;  /* surface tint */
+  --ow-grey-200:    #E5E5E5;  /* dividers, progress track */
+  --ow-grey-300:    #DADADA;
+  --ow-grey-400:    #B4B4B4;
+  --ow-grey-500:    #5D5D5D;  /* body text */
+  --ow-grey-900:    #343434;  /* headers, primary text */
+  --ow-black:       #000000;
+
+  /* ---------- Color: Brand Purple ---------- */
+  --ow-purple-100:  #FBF6FF;  /* tint surface */
+  --ow-purple-200:  #F1DBFF;
+  --ow-purple-300:  #E2C5FC;
+  --ow-purple-400:  #8E49CD;
+  --ow-purple-500:  #AF4BFB;  /* primary brand */
+  --ow-purple-600:  #8A38F5;  /* primary hover/stroke */
+  --ow-purple-700:  #4D24AD;  /* deep purple */
+  --ow-purple-800:  #271D69;  /* on-purple text */
+
+  /* ---------- Color: Blue (Link / AAA) ---------- */
+  --ow-blue-100:    #EBF0FF;
+  --ow-blue-200:    #ECF1FF;
+  --ow-blue-400:    #426FFB;
+  --ow-blue-500:    #3768FB;  /* AAA link */
+  --ow-blue-700:    #4540BD;
+
+  /* ---------- Color: Success ---------- */
+  --ow-green-100:   #E5FBEC;
+  --ow-green-500:   #00D73F;
+  --ow-green-600:   #00A331;
+  --ow-green-700:   #00AB32;  /* AA */
+  --ow-green-800:   #00922B;
+
+  /* ---------- Color: Warning ---------- */
+  --ow-orange-100:  #FFF0E7;
+  --ow-orange-500:  #FA650F;  /* AA */
+  --ow-yellow-500:  #FBD242;
+
+  /* ---------- Color: Error ---------- */
+  --ow-red-100:     #FCE6E6;
+  --ow-red-500:     #DD0303;
+
+  /* ---------- Color: Accent ---------- */
+  --ow-pink-500:    #FB42D2;
+
+  /* ---------- Semantic mappings ---------- */
+  --ow-bg:                 var(--ow-white);
+  --ow-bg-tint:            var(--ow-grey-100);
+  --ow-surface:            var(--ow-white);
+  --ow-surface-purple:     var(--ow-purple-100);
+  --ow-text:               var(--ow-grey-900);
+  --ow-text-secondary:     var(--ow-grey-500);
+  --ow-text-tertiary:      var(--ow-grey-400);
+  --ow-text-on-primary:    var(--ow-white);
+  --ow-text-link:          var(--ow-blue-500);
+  --ow-divider:            var(--ow-grey-200);
+  --ow-border:             var(--ow-grey-200);
+  --ow-primary:            var(--ow-purple-500);
+  --ow-primary-strong:     var(--ow-purple-600);
+  --ow-positive:           var(--ow-green-700);
+  --ow-positive-strong:    var(--ow-green-800);
+  --ow-positive-tint:      var(--ow-green-100);
+  --ow-warning:            var(--ow-orange-500);
+  --ow-warning-tint:       var(--ow-orange-100);
+  --ow-error:              var(--ow-red-500);
+  --ow-error-tint:         var(--ow-red-100);
+
+  /* ---------- Typography ---------- */
+  --ow-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ow-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Type ramp (px) — see typography preview */
+  --ow-text-title:    96px; /* Inter Bold */
+  --ow-text-h1:       32px;
+  --ow-text-h2:       20px;
+  --ow-text-h3:       18px;
+  --ow-text-sub:      16px;
+  --ow-text-body1:    14px;
+  --ow-text-body2:    14px; /* medium */
+  --ow-text-body3:    12px;
+  --ow-text-body4:    10px;
+  --ow-text-link:     14px;
+  --ow-text-label:    12px;
+
+  --ow-lh-tight: 1.1;
+  --ow-lh-snug:  1.25;
+  --ow-lh-base:  1.4;
+  --ow-lh-loose: 1.55;
+
+  /* ---------- Radius ---------- */
+  --ow-radius-xs: 4px;
+  --ow-radius-sm: 8px;
+  --ow-radius-md: 12px;
+  --ow-radius-lg: 16px;
+  --ow-radius-xl: 20px;
+  --ow-radius-2xl: 24px;
+  --ow-radius-pill: 999px;
+
+  /* ---------- Spacing (4px grid) ---------- */
+  --ow-space-1:  4px;
+  --ow-space-2:  8px;
+  --ow-space-3:  12px;
+  --ow-space-4:  16px;
+  --ow-space-5:  20px;
+  --ow-space-6:  24px;
+  --ow-space-7:  32px;
+  --ow-space-8:  40px;
+  --ow-space-9:  48px;
+  --ow-space-10: 64px;
+
+  /* ---------- Elevation ---------- */
+  --ow-shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 1px rgba(0,0,0,0.04);
+  --ow-shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --ow-shadow-lg: 0 12px 32px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  --ow-shadow-purple: 0 8px 24px rgba(175,75,251,0.25);
+
+  /* ---------- Motion ---------- */
+  --ow-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ow-dur-1: 120ms;
+  --ow-dur-2: 200ms;
+  --ow-dur-3: 320ms;
+}
+
+/* =========================================================
+   Base + Type ramp utility classes
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  font-family: var(--ow-font-sans);
+  color: var(--ow-text);
+  background: var(--ow-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ow-title    { font: 800 var(--ow-text-title)/var(--ow-lh-tight) var(--ow-font-sans); color: var(--ow-text); letter-spacing: -0.02em; }
+.ow-h1       { font: 700 var(--ow-text-h1)/var(--ow-lh-snug) var(--ow-font-sans); color: var(--ow-text); letter-spacing: -0.01em; }
+.ow-h2       { font: 700 var(--ow-text-h2)/var(--ow-lh-snug) var(--ow-font-sans); color: var(--ow-text); letter-spacing: -0.005em; }
+.ow-h3       { font: 700 var(--ow-text-h3)/var(--ow-lh-snug) var(--ow-font-sans); color: var(--ow-text); }
+.ow-sub      { font: 700 var(--ow-text-sub)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text); }
+.ow-body-1   { font: 700 var(--ow-text-body1)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text); }
+.ow-body-2   { font: 500 var(--ow-text-body2)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text-secondary); }
+.ow-body-3   { font: 500 var(--ow-text-body3)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text-secondary); }
+.ow-body-4   { font: 500 var(--ow-text-body4)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-text-secondary); }
+.ow-link     { font: 700 var(--ow-text-link)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-blue-500); text-decoration: underline; }
+.ow-link:hover { text-decoration: underline; }
+.ow-label    { font: 700 var(--ow-text-label)/var(--ow-lh-base) var(--ow-font-sans); color: var(--ow-blue-500); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.ow-mono     { font-family: var(--ow-font-mono); }
+
+/* =========================================================
+   Component primitives
+   ========================================================= */
+
+/* Buttons */
+.ow-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 700 16px/1 var(--ow-font-sans);
+  height: 56px; padding: 0 24px;
+  border-radius: var(--ow-radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--ow-dur-1) var(--ow-ease), background var(--ow-dur-2) var(--ow-ease), color var(--ow-dur-2) var(--ow-ease), border-color var(--ow-dur-2) var(--ow-ease);
+  text-decoration: none;
+  user-select: none;
+}
+.ow-btn:active { transform: scale(0.98); }
+.ow-btn--sm { height: 40px; padding: 0 16px; font-size: 14px; }
+.ow-btn--lg { height: 64px; padding: 0 28px; font-size: 18px; }
+
+.ow-btn--primary { background: var(--ow-primary); color: var(--ow-text-on-primary); }
+.ow-btn--primary:hover { background: var(--ow-primary-strong); }
+.ow-btn--primary:disabled, .ow-btn--primary[aria-disabled="true"] {
+  background: var(--ow-purple-200); color: var(--ow-white); cursor: not-allowed;
+}
+
+.ow-btn--secondary {
+  background: var(--ow-purple-100); color: var(--ow-primary);
+}
+.ow-btn--secondary:hover { background: var(--ow-purple-200); }
+
+.ow-btn--ghost {
+  background: transparent; color: var(--ow-text); border-color: var(--ow-border);
+}
+.ow-btn--ghost:hover { background: var(--ow-grey-100); }
+
+.ow-btn--text {
+  background: transparent; color: var(--ow-primary); height: auto; padding: 8px 4px;
+  border-radius: 4px;
+}
+
+.ow-btn--destructive { background: var(--ow-error); color: var(--ow-white); }
+.ow-btn--destructive:hover { filter: brightness(0.92); }
+
+/* Input — label lives inside the bordered container, above the value */
+.ow-field { display: flex; flex-direction: column; gap: 6px; }
+
+label.ow-input,
+.ow-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  border: 1px solid var(--ow-border);
+  background: var(--ow-white);
+  border-radius: 10px;
+  padding: 12px 16px;
+  transition: border-color var(--ow-dur-2) var(--ow-ease), box-shadow var(--ow-dur-2) var(--ow-ease);
+  cursor: text;
+  box-sizing: border-box;
+}
+.ow-input:focus-within { border-color: var(--ow-primary); box-shadow: 0 0 0 4px rgba(175,75,251,0.12); }
+.ow-input.is-error { border-color: var(--ow-error); }
+.ow-input.is-error:focus-within { box-shadow: 0 0 0 4px rgba(221,3,3,0.12); }
+
+.ow-input-label {
+  display: block;
+  font: 700 14px/1.2 var(--ow-font-sans);
+  color: var(--ow-text);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.ow-input > input,
+.ow-input > textarea,
+.ow-input > select {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  font: 400 15px/1.3 var(--ow-font-sans);
+  color: var(--ow-text-secondary);
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.ow-input input::placeholder,
+.ow-input textarea::placeholder { color: var(--ow-text-tertiary); font-weight: 500; }
+
+.ow-field-help  { font: 500 12px/1.4 var(--ow-font-sans); color: var(--ow-text-secondary); padding: 0 4px; }
+.ow-field-error { font: 700 12px/1.4 var(--ow-font-sans); color: var(--ow-error); padding: 0 4px; }
+/* legacy external label — still available but no longer the default */
+.ow-field-label { font: 700 12px/1 var(--ow-font-sans); color: var(--ow-text); letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* Card */
+.ow-card {
+  background: var(--ow-white);
+  border: 1px solid var(--ow-border);
+  border-radius: var(--ow-radius-lg);
+  padding: 20px;
+  box-shadow: var(--ow-shadow-sm);
+}
+.ow-card--flat { box-shadow: none; }
+.ow-card--elevated { box-shadow: var(--ow-shadow-md); }
+
+/* Pill / Badge */
+.ow-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 12px;
+  border-radius: var(--ow-radius-pill);
+  font: 700 12px/1 var(--ow-font-sans);
+  letter-spacing: 0.02em;
+}
+.ow-pill--info     { background: var(--ow-blue-100);    color: var(--ow-blue-500); }
+.ow-pill--positive { background: var(--ow-green-100);   color: var(--ow-positive-strong); }
+.ow-pill--warning  { background: var(--ow-warning-tint);color: var(--ow-warning); }
+.ow-pill--error    { background: var(--ow-error-tint);  color: var(--ow-error); }
+.ow-pill--purple   { background: var(--ow-purple-100);  color: var(--ow-primary); }
+.ow-pill--neutral  { background: var(--ow-grey-100);    color: var(--ow-grey-500); }
+
+/* Progress */
+.ow-progress {
+  width: 100%; height: 8px; border-radius: var(--ow-radius-pill);
+  background: var(--ow-grey-200); overflow: hidden;
+}
+.ow-progress > i {
+  display: block; height: 100%; background: var(--ow-primary);
+  border-radius: inherit; transition: width var(--ow-dur-3) var(--ow-ease);
+}
+.ow-progress--positive > i { background: var(--ow-positive); }
+
+/* Divider */
+.ow-divider { height: 1px; background: var(--ow-divider); border: 0; margin: 16px 0; }
+
+/* Toggle */
+.ow-toggle { position: relative; width: 48px; height: 28px; display: inline-block; }
+.ow-toggle input { opacity: 0; width: 0; height: 0; }
+.ow-toggle-track {
+  position: absolute; inset: 0;
+  background: var(--ow-grey-200); border-radius: 999px;
+  transition: background var(--ow-dur-2) var(--ow-ease);
+}
+.ow-toggle-track::before {
+  content: ""; position: absolute; top: 3px; left: 3px;
+  width: 22px; height: 22px; background: white; border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform var(--ow-dur-2) var(--ow-ease);
+}
+.ow-toggle input:checked + .ow-toggle-track { background: var(--ow-primary); }
+.ow-toggle input:checked + .ow-toggle-track::before { transform: translateX(20px); }
+
+/* Checkbox */
+.ow-checkbox { position: relative; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.ow-checkbox input { position: absolute; opacity: 0; pointer-events: none; }
+.ow-checkbox-box {
+  width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--ow-grey-400);
+  display: inline-flex; align-items: center; justify-content: center;
+  background: white; transition: background var(--ow-dur-2) var(--ow-ease), border-color var(--ow-dur-2) var(--ow-ease);
+}
+.ow-checkbox input:checked + .ow-checkbox-box { background: var(--ow-primary); border-color: var(--ow-primary); }
+.ow-checkbox-box svg { opacity: 0; transition: opacity var(--ow-dur-1); }
+.ow-checkbox input:checked + .ow-checkbox-box svg { opacity: 1; }
+
+/* Radio */
+.ow-radio { position: relative; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.ow-radio input { position: absolute; opacity: 0; pointer-events: none; }
+.ow-radio-dot {
+  width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--ow-grey-400);
+  display: inline-flex; align-items: center; justify-content: center; background: white;
+  transition: border-color var(--ow-dur-2) var(--ow-ease);
+}
+.ow-radio-dot::after {
+  content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--ow-primary);
+  transform: scale(0); transition: transform var(--ow-dur-2) var(--ow-ease);
+}
+.ow-radio input:checked + .ow-radio-dot { border-color: var(--ow-primary); }
+.ow-radio input:checked + .ow-radio-dot::after { transform: scale(1); }
+
+/* Tab bar (mobile) */
+.ow-tabbar {
+  display: flex; align-items: center; justify-content: space-around;
+  background: var(--ow-white);
+  border-top: 1px solid var(--ow-divider);
+  padding: 8px 12px 24px;
+}
+.ow-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 14px; border-radius: var(--ow-radius-md);
+  color: var(--ow-text); font: 700 12px/1 var(--ow-font-sans);
+  background: transparent;
+  border: 0; cursor: pointer;
+}
+.ow-tab[aria-selected="true"] { background: var(--ow-purple-100); color: var(--ow-primary); }
+.ow-tab[aria-selected="true"] svg { color: var(--ow-primary); }
+
+/* Container helpers */
+.ow-stack { display: flex; flex-direction: column; gap: 16px; }
+.ow-row   { display: flex; align-items: center; gap: 12px; }
