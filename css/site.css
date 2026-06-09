@@ -2875,6 +2875,21 @@ svg.phone-screen {
 .faq-head { margin-bottom: 40px; }
 .faq-head h2 { margin: 16px 0 0; }
 
+/* ============== WHO IS OPTIWATT ============== */
+.who-section {
+  background: var(--bg-dark);
+  padding: 96px 0;
+}
+.who-head {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.who-head .eyebrow { justify-content: center; }
+.who-head h2 { margin: 16px 0; color: var(--hero-fg); }
+.who-head .lede { margin: 0 auto 12px; max-width: 62ch; color: var(--hero-fg-muted); }
+.who-head .who-foot { color: var(--hero-fg-dim); font-size: 15px; margin: 0 auto; max-width: 62ch; }
+
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -3019,6 +3034,7 @@ svg.phone-screen {
   .beyond-section,
   .testimonials,
   .how-free,
+  .who-section,
   .faq-section,
   .download-section {
     padding: 56px 0;
