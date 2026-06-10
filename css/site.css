@@ -2969,34 +2969,22 @@ svg.phone-screen {
   gap: 14px;
   align-items: stretch;
 }
-.store-badge {
+.store-badges-row {
   display: flex;
-  flex-direction: column;
-  padding: 12px 24px;
-  background: #000;
-  color: var(--hero-fg);
-  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.app-badge {
+  display: inline-flex;
   text-decoration: none;
-  transition: transform var(--ow-dur-2, 200ms) ease, background var(--ow-dur-2, 200ms) ease;
-  border: 1px solid rgba(244, 239, 255, 0.15);
+  transition: transform var(--ow-dur-2, 200ms) ease;
 }
-.store-badge:hover {
-  transform: translateY(-2px);
-  background: #1a1a1a;
-}
-.sb-small {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--hero-fg-muted);
-  font-family: var(--mono-font);
-}
-.sb-big {
-  font-family: var(--display-font);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-top: 2px;
+.app-badge:hover { transform: translateY(-2px); }
+.app-badge img {
+  height: 52px;
+  width: auto;
+  display: block;
 }
 .download-foot {
   font-family: var(--mono-font);
