@@ -29,7 +29,7 @@
   --bg-tint-2:         #F2F2F2; /* --ow-grey-100 */
 
   --display-font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono-font: "IBM Plex Mono", ui-monospace, monospace;
+  --mono-font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
   --container: 1240px;
   --gutter: 32px;
@@ -118,7 +118,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
 .metric-label {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -326,14 +326,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .tile-tag {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--hero-fg-dim);
 }
 .tile-status {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent-green);
@@ -383,7 +383,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .tile-row-stats .lbl {
   font-family: var(--mono-font);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hero-fg-dim);
@@ -402,7 +402,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .badge-content .lbl {
   font-family: var(--mono-font);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--hero-fg-muted);
@@ -430,7 +430,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .logo-strip-inner { text-align: center; }
 .logo-strip-label {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ow-text-tertiary);
@@ -554,7 +554,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .chip {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 500;
@@ -573,7 +573,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .proto-wall .label {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ow-text-tertiary);
@@ -653,7 +653,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .feature-card .feat-num {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--ow-text-tertiary);
 }
@@ -754,7 +754,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   display: flex; gap: 6px; padding: 4px; background: rgba(244,239,255,0.05); border-radius: 999px;
 }
 .insights-main .im-tab {
-  font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
   padding: 8px 14px; border-radius: 999px;
   color: var(--hero-fg-muted); border: 1px solid transparent; cursor: default;
 }
@@ -767,7 +767,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   display: flex; gap: 18px; flex-wrap: wrap; padding-top: 4px;
 }
 .insights-main .im-legend span {
-  font-family: var(--mono-font); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hero-fg-dim);
+  font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hero-fg-dim);
   display: inline-flex; align-items: center; gap: 8px;
 }
 .insights-main .im-legend span::before {
@@ -793,7 +793,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .insights-main .im-event-meta .em-when {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hero-fg-dim);
@@ -820,7 +820,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .kpi .kpi-lbl {
   font-family: var(--mono-font);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hero-fg-dim);
@@ -859,7 +859,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   gap: 18px;
 }
 .insight-side .is-eyebrow {
-  font-family: var(--mono-font); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hero-fg-dim);
+  font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--hero-fg-dim);
 }
 .insight-side h4 { font-size: 18px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 .insight-side p { margin: 0; font-size: 13px; color: var(--hero-fg-muted); }
@@ -953,7 +953,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   letter-spacing: 0.04em;
 }
 .top-banner .tag {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   background: var(--accent-green);
@@ -997,7 +997,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .b-card .device-split .ds-lbl {
   font-family: var(--mono-font);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hero-fg-dim);
@@ -1040,7 +1040,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   padding: 8px 14px;
   border-radius: 999px;
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
@@ -1075,7 +1075,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .algo-card .algo-num {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--accent-purple);
   font-weight: 600;
@@ -1136,7 +1136,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .resiflex-screen .rs-brand {
   font-family: var(--mono-font);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--accent-purple);
   font-weight: 700;
@@ -1157,7 +1157,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   gap: 6px;
 }
-.resiflex-screen .rs-card .rs-cap { font-family: var(--mono-font); font-size: 9px; letter-spacing: 0.18em; opacity: 0.85; }
+.resiflex-screen .rs-card .rs-cap { font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.18em; opacity: 0.85; }
 .resiflex-screen .rs-card .rs-num { font-family: var(--mono-font); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
 .resiflex-screen .rs-card .rs-progress { height: 4px; background: rgba(255,255,255,0.25); border-radius: 999px; overflow: hidden; margin-top: 4px; }
 .resiflex-screen .rs-card .rs-progress::after { content: ""; display: block; width: 76%; height: 100%; background: var(--accent-green); }
@@ -1173,14 +1173,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   gap: 4px;
 }
-.resiflex-screen .rs-mini .rs-cap { font-family: var(--mono-font); font-size: 8px; letter-spacing: 0.16em; color: var(--ow-text-tertiary); text-transform: uppercase; }
+.resiflex-screen .rs-mini .rs-cap { font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.16em; color: var(--ow-text-tertiary); text-transform: uppercase; }
 .resiflex-screen .rs-mini .rs-mn { font-family: var(--mono-font); font-size: 16px; font-weight: 700; color: var(--ow-text); letter-spacing: -0.02em; }
 .resiflex-screen .rs-mini.green .rs-mn { color: var(--accent-green-text); }
 .resiflex-screen .rs-event {
   background: var(--ow-purple-100);
   border-radius: 12px;
   padding: 12px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--accent-purple);
   display: flex;
   align-items: center;
@@ -1192,7 +1192,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .resiflex-meta {
   position: absolute;
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ow-text-tertiary);
@@ -1297,7 +1297,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .contact-meta .cm-row span:first-child {
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--accent-green);
   flex-shrink: 0;
   width: 80px;
@@ -1316,7 +1316,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field label {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--hero-fg-dim);
@@ -1371,7 +1371,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .contact-form .form-foot {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   color: var(--hero-fg-dim);
   text-align: center;
@@ -1394,9 +1394,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .flow-stats { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
-  .top-banner-inner { font-size: 11px; padding: 8px 14px; }
+  .top-banner-inner { font-size: 12px; padding: 8px 14px; }
   .has-banner .site-nav { top: 32px; }
-  .top-banner .tag { font-size: 9px; padding: 2px 6px; }
+  .top-banner .tag { font-size: 12px; padding: 2px 6px; }
   .b-card .device-split { grid-template-columns: 1fr; gap: 10px; }
   .algo-grid { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
@@ -1431,7 +1431,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .enterprise-bullets li:last-child { border-bottom: 1px solid rgba(0,0,0,0.07); }
 .enterprise-bullets .num {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   color: var(--ow-text-tertiary);
   padding-top: 4px;
@@ -1510,7 +1510,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .footer-grid p { font-size: 14px; max-width: 32ch; margin: 0; }
 .footer-col h5 {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin: 0 0 18px;

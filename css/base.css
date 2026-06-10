@@ -3,7 +3,7 @@
    Source: Figma "Optiwatt — Design System"
    ========================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
   /* ---------- Color: Neutrals ---------- */
@@ -76,7 +76,7 @@
 
   /* ---------- Typography ---------- */
   --ow-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --ow-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ow-font-mono: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Type ramp (px) — see typography preview */
   --ow-text-title:    96px; /* Inter Bold */
@@ -87,7 +87,7 @@
   --ow-text-body1:    14px;
   --ow-text-body2:    14px; /* medium */
   --ow-text-body3:    12px;
-  --ow-text-body4:    10px;
+  --ow-text-body4:    12px;
   --ow-text-link:     14px;
   --ow-text-label:    12px;
 
