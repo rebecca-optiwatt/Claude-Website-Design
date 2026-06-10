@@ -1136,7 +1136,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .resiflex-screen .rs-brand {
   font-family: var(--mono-font);
-  font-size: 12px;
+  font-size: 9px;
   letter-spacing: 0.18em;
   color: var(--accent-purple);
   font-weight: 700;
@@ -1157,7 +1157,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   gap: 6px;
 }
-.resiflex-screen .rs-card .rs-cap { font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.18em; opacity: 0.85; }
+.resiflex-screen .rs-card .rs-cap { font-family: var(--mono-font); font-size: 9px; letter-spacing: 0.18em; opacity: 0.85; }
 .resiflex-screen .rs-card .rs-num { font-family: var(--mono-font); font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
 .resiflex-screen .rs-card .rs-progress { height: 4px; background: rgba(255,255,255,0.25); border-radius: 999px; overflow: hidden; margin-top: 4px; }
 .resiflex-screen .rs-card .rs-progress::after { content: ""; display: block; width: 76%; height: 100%; background: var(--accent-green); }
@@ -1173,14 +1173,14 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   gap: 4px;
 }
-.resiflex-screen .rs-mini .rs-cap { font-family: var(--mono-font); font-size: 12px; letter-spacing: 0.16em; color: var(--ow-text-tertiary); text-transform: uppercase; }
+.resiflex-screen .rs-mini .rs-cap { font-family: var(--mono-font); font-size: 8px; letter-spacing: 0.16em; color: var(--ow-text-tertiary); text-transform: uppercase; }
 .resiflex-screen .rs-mini .rs-mn { font-family: var(--mono-font); font-size: 16px; font-weight: 700; color: var(--ow-text); letter-spacing: -0.02em; }
 .resiflex-screen .rs-mini.green .rs-mn { color: var(--accent-green-text); }
 .resiflex-screen .rs-event {
   background: var(--ow-purple-100);
   border-radius: 12px;
   padding: 12px;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent-purple);
   display: flex;
   align-items: center;
