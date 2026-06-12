@@ -2912,18 +2912,9 @@ svg.phone-screen {
   }
 }
 
-/* FAQ accordion */
-.faq-section {
-  background: var(--ow-white);
-  padding: 96px 0;
-}
-.faq-container { max-width: 800px; }
-.faq-head { margin-bottom: 40px; }
-.faq-head h2 { margin: 16px 0 0; }
-
 /* ============== WHO IS OPTIWATT ============== */
 .who-section {
-  background: var(--bg-dark);
+  background: var(--ow-white);
   padding: 96px 0;
 }
 .who-head {
@@ -2932,59 +2923,15 @@ svg.phone-screen {
   text-align: center;
 }
 .who-head .eyebrow { justify-content: center; }
-.who-head h2 { margin: 16px 0; color: var(--hero-fg); }
-.who-head .lede { margin: 0 auto 12px; max-width: 62ch; color: var(--hero-fg-muted); }
-.who-head .who-foot { color: var(--hero-fg-dim); font-size: 15px; margin: 0 auto; max-width: 62ch; }
-
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.who-head h2 { margin: 16px 0; color: var(--bg-dark); }
+.who-head .lede { margin: 0 auto 12px; max-width: 62ch; color: var(--ow-text-secondary); }
+.who-head .who-foot { color: var(--ow-text-secondary); font-size: 15px; margin: 0 auto; max-width: 62ch; opacity: 0.85; }
+.who-support {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(39, 29, 105, 0.12);
 }
-.faq-item {
-  background: var(--ow-white);
-  border: 1px solid var(--ow-grey-200);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: border-color var(--ow-dur-2, 200ms) ease;
-}
-.faq-item[open] {
-  border-color: var(--accent-purple-aa);
-}
-.faq-item summary {
-  padding: 20px 24px;
-  cursor: pointer;
-  font-family: var(--display-font);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ow-text);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  gap: 16px;
-}
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
-  content: "+";
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--accent-purple-aa);
-  transition: transform var(--ow-dur-2, 200ms) ease;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
-}
-.faq-body {
-  padding: 0 24px 20px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ow-text-secondary);
-}
-.faq-body p { margin: 0; }
+.who-support p { color: var(--ow-text-secondary); font-size: 16px; margin: 0 auto 18px; max-width: 56ch; }
 
 /* Download CTA */
 .download-section {
@@ -3077,7 +3024,6 @@ svg.phone-screen {
   .testimonials,
   .how-free,
   .who-section,
-  .faq-section,
   .download-section {
     padding: 56px 0;
   }
@@ -3460,33 +3406,4 @@ svg.phone-screen {
   letter-spacing: 0.06em;
   line-height: 1.6;
   color: var(--ow-text-secondary);
-}
-
-/* Consumer — FAQ footer with support-articles button */
-.faq-footer {
-  margin: 48px auto 0;
-  text-align: center;
-  max-width: 720px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-.faq-footer p {
-  margin: 0;
-  font-size: 15px;
-  color: var(--ow-text-secondary);
-}
-
-/* Inline links inside FAQ answers */
-.faq-body a {
-  color: var(--accent-purple-aa);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-  font-weight: 600;
-  transition: color var(--ow-dur-2, 200ms) var(--ow-ease, ease);
-}
-.faq-body a:hover {
-  color: var(--accent-purple);
 }
