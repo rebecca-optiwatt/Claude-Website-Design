@@ -2719,7 +2719,7 @@ svg.phone-screen {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-46%) translateX(24%) rotate(8deg);
+  transform: translateY(-46%) translateX(24%) rotate(3deg);
   max-width: 300px;
   opacity: 0.92;
   filter: drop-shadow(0 24px 40px rgba(39, 29, 105, 0.18));
@@ -2741,7 +2741,7 @@ svg.phone-screen {
     order: 2;
   }
   .beyond-phone-front { transform: translateX(-8%); }
-  .beyond-phone-back  { transform: translateY(-46%) translateX(28%) rotate(8deg); }
+  .beyond-phone-back  { transform: translateY(-46%) translateX(28%) rotate(3deg); }
 }
 @media (max-width: 600px) {
   .beyond-pair-visual {
@@ -3014,6 +3014,14 @@ svg.phone-screen {
   flex-direction: column;
   gap: 14px;
   align-items: stretch;
+  /* shrink the column to the badge row's width so the CTA matches the
+     two badges side-by-side, and tracks them if the badges resize */
+  width: max-content;
+  max-width: 100%;
+}
+.download-primary-cta {
+  width: 100%;
+  justify-content: center;
 }
 .store-badges-row {
   display: flex;
@@ -3287,11 +3295,20 @@ svg.phone-screen {
   justify-self: end;
 }
 .step-num {
-  font-family: var(--mono-font);
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: #fff;
+  font-family: var(--display-font);
+  font-size: 18px;
   font-weight: 700;
-  color: var(--accent-purple-aa);
+  letter-spacing: 0;
+  margin-bottom: 6px;
+  box-shadow: 0 10px 22px -8px rgba(39, 29, 105, 0.5);
 }
 .step-title {
   margin: 0;
@@ -3321,7 +3338,9 @@ svg.phone-screen {
   max-width: 320px;
   height: auto;
   filter: drop-shadow(0 30px 50px rgba(39, 29, 105, 0.22));
+  transition: transform 0.35s ease;
 }
+.step-row:hover .step-phone { transform: translateY(-8px); }
 
 @media (max-width: 880px) {
   .step-row {
