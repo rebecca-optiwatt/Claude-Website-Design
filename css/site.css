@@ -2719,16 +2719,16 @@ svg.phone-screen {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-46%) translateX(24%) rotate(3deg);
-  max-width: 300px;
-  opacity: 0.92;
+  transform: translateY(-46%) translateX(18%) rotate(-10deg);
+  max-width: 370px;
+  opacity: 0.94;
   filter: drop-shadow(0 24px 40px rgba(39, 29, 105, 0.18));
   z-index: 1;
 }
 .beyond-phone-front {
   position: relative;
   z-index: 2;
-  transform: translateX(-12%);
+  transform: translateX(-18%);
 }
 
 @media (max-width: 960px) {
@@ -2741,14 +2741,14 @@ svg.phone-screen {
     order: 2;
   }
   .beyond-phone-front { transform: translateX(-8%); }
-  .beyond-phone-back  { transform: translateY(-46%) translateX(28%) rotate(3deg); }
+  .beyond-phone-back  { transform: translateY(-46%) translateX(16%) rotate(-10deg); }
 }
 @media (max-width: 600px) {
   .beyond-pair-visual {
     min-height: 380px;
   }
   .beyond-phone { max-width: 240px; }
-  .beyond-phone-back { max-width: 220px; }
+  .beyond-phone-back { max-width: 240px; }
 }
 
 /* Testimonials grid */
@@ -2926,12 +2926,6 @@ svg.phone-screen {
 .who-head h2 { margin: 16px 0; color: var(--bg-dark); }
 .who-head .lede { margin: 0 auto 12px; max-width: 62ch; color: var(--ow-text-secondary); }
 .who-head .who-foot { color: var(--ow-text-secondary); font-size: 15px; margin: 0 auto; max-width: 62ch; opacity: 0.85; }
-.who-support {
-  margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(39, 29, 105, 0.12);
-}
-.who-support p { color: var(--ow-text-secondary); font-size: 16px; margin: 0 auto 18px; max-width: 56ch; }
 
 /* Download CTA */
 .download-section {
@@ -2960,21 +2954,13 @@ svg.phone-screen {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  align-items: stretch;
-  /* shrink the column to the badge row's width so the CTA matches the
-     two badges side-by-side, and tracks them if the badges resize */
-  width: max-content;
-  max-width: 100%;
-}
-.download-primary-cta {
-  width: 100%;
-  justify-content: center;
+  align-items: flex-start;
 }
 .store-badges-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 14px;
-  align-items: center;
 }
 .app-badge {
   display: inline-flex;
@@ -2983,7 +2969,7 @@ svg.phone-screen {
 }
 .app-badge:hover { transform: translateY(-2px); }
 .app-badge img {
-  height: 52px;
+  height: 60px;
   width: auto;
   display: block;
 }
