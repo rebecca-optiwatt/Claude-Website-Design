@@ -329,6 +329,15 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* nav variant on light pages */
 .site-nav.is-light .nav-links a { color: var(--ow-text); }
 .site-nav.is-light .nav-links a:hover { color: var(--accent-green-text); }
+.nav-login {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--hero-fg);
+  transition: color var(--ow-dur-2, 200ms) ease;
+}
+.nav-login:hover { color: var(--accent-green); }
+.site-nav.is-light .nav-login { color: var(--ow-text); }
+.site-nav.is-light .nav-login:hover { color: var(--accent-green-text); }
 
 /* =========================================================
    HERO (dark)
@@ -2919,6 +2928,12 @@ svg.phone-screen {
 .who-head h2 { margin: 16px 0; color: var(--bg-dark); }
 .who-head .lede { margin: 0 auto 12px; max-width: 62ch; color: var(--ow-text-secondary); }
 .who-head .who-foot { color: var(--ow-text-secondary); font-size: 15px; margin: 0 auto; max-width: 62ch; opacity: 0.85; }
+.who-support {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(39, 29, 105, 0.12);
+}
+.who-support p { color: var(--ow-text-secondary); font-size: 16px; margin: 0 auto 18px; max-width: 56ch; }
 
 /* Download CTA */
 .download-section {
