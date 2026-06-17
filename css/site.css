@@ -339,6 +339,31 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .site-nav.is-light .nav-login { color: var(--ow-text); }
 .site-nav.is-light .nav-login:hover { color: var(--accent-green-text); }
 
+/* Mobile menu toggle (hidden on desktop, shown <= 720px) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px; height: 42px;
+  margin: -9px -9px -9px 0;
+  padding: 9px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 22px; height: 2px;
+  border-radius: 2px;
+  background: var(--hero-fg);
+  transition: transform 0.22s ease, opacity 0.18s ease;
+}
+.site-nav.is-light .nav-toggle-bar { background: var(--ow-text); }
+.nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* =========================================================
    HERO (dark)
    ========================================================= */
@@ -646,7 +671,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* =========================================================
    Bento stat grid
    ========================================================= */
-.bento { background: var(--ow-white); padding: 88px 0 120px; }
+.bento { background: var(--ow-white); padding: 120px 0; }
 .bento-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -803,9 +828,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   margin: 0;
   line-height: 1.5;
 }
-.outcomes-head { max-width: 760px; margin: 0 auto 72px; text-align: center; }
+.outcomes-head { max-width: 760px; margin: 0 0 72px; }
 .outcomes-head h2 { margin: 16px 0; }
-.outcomes-head p { margin: 0 auto; }
+.outcomes-head p { margin: 0; }
 
 .outcomes-grid {
   display: grid;
@@ -840,7 +865,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* =========================================================
    Section: Platform Components
    ========================================================= */
-.platform { background: var(--bg-tint); padding: 120px 0 80px; }
+.platform { background: var(--bg-tint); padding: 120px 0; }
 .platform-head { max-width: 760px; margin-bottom: 56px; }
 .platform-head h2 { margin: 16px 0; }
 .platform-head p { margin: 0; }
@@ -1341,9 +1366,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
    Section: Integration (simplified flow, NOT a 3-col grid)
    ========================================================= */
 .integration { background: var(--ow-white); padding: 120px 0; }
-.integration-head { max-width: 760px; margin: 0 auto 64px; text-align: center; }
+.integration-head { max-width: 760px; margin: 0 0 64px; }
 .integration-head h2 { margin: 16px 0; }
-.integration-head p { margin: 0 auto; }
+.integration-head p { margin: 0; }
 
 .flow-diagram {
   position: relative;
@@ -1737,7 +1762,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .contact {
   background: var(--bg-dark);
   color: var(--hero-fg);
-  padding: 112px 0;
+  padding: 120px 0;
   position: relative;
   overflow: hidden;
 }
@@ -2060,7 +2085,31 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .tile-bignum { font-size: 44px; }
   .device-grid { grid-template-columns: 1fr; }
   .b-card.span-3, .b-card.span-4, .b-card.span-6, .b-card.span-8 { grid-column: span 12; }
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-inner { gap: 16px; }
+  .site-nav .btn-primary.btn-sm,
+  .site-nav .nav-login { margin-left: auto; }
+  #primary-nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    display: none;
+    background: var(--bg-dark-deep);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.6);
+  }
+  .nav-open #primary-nav { display: block; }
+  #primary-nav .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 6px 0;
+  }
+  #primary-nav .nav-links a {
+    display: block;
+    padding: 14px var(--gutter, 32px);
+    font-size: 16px;
+  }
+  #primary-nav .nav-links a.is-active::after { display: none; }
   .arch-sub-stats { grid-template-columns: 1fr 1fr; gap: 16px; }
   .footer-grid { grid-template-columns: 1fr; }
   .b-card { padding: 28px; }

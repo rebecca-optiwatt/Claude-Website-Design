@@ -29,12 +29,9 @@
 <header class="site-nav is-dark">
   <div class="container nav-inner">
     <a class="nav-logo" href="index.html">
-      <span style="color:#F4EFFF;display:inline-flex;"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 29 29" fill="none">
-  <path d="M 14.5 0 C 22.508 0 29 6.492 29 14.5 C 29 22.508 22.508 29 14.5 29 C 6.492 29 0 22.508 0 14.5 C 0 6.492 6.492 0 14.5 0 Z M 14.659 13.06 L 17.926 13.06 L 12.746 23.877 C 12.361 24.68 13.409 25.396 14.031 24.749 L 22.116 16.342 C 24.044 14.333 22.611 11.012 19.813 11.012 L 15.643 11.012 L 14.659 13.06 Z M 17.244 5.123 C 17.629 4.32 16.582 3.605 15.959 4.251 L 7.884 12.658 C 5.956 14.667 7.389 17.988 10.187 17.988 L 14.357 17.988 L 15.346 15.931 L 15.336 15.94 L 12.064 15.94 L 17.244 5.123 Z M 14.654 13.06 L 14.654 13.069 L 14.659 13.06 L 14.654 13.06 Z" fill="currentColor" fill-rule="nonzero"></path>
-</svg></span>
-      <span style="color:var(--hero-fg);font-weight:700;font-size:17px;letter-spacing:-0.01em;">Optiwatt</span>
+      <img src="images/logo-light.webp" alt="Optiwatt">
     </a>
-    <nav aria-label="Primary">
+    <nav aria-label="Primary" id="primary-nav">
       <ul class="nav-links">
         <li><a href="index.html">Utilities</a></li>
         <li><a href="partners.html" class="is-active">Partners</a></li>
@@ -42,6 +39,11 @@
       </ul>
     </nav>
     <a class="btn btn-primary btn-sm" href="#cta">Let's connect</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </header>
 
