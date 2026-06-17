@@ -2516,6 +2516,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 }
 .savings-stat:nth-child(2) .ss-num { color: var(--accent-purple-aa); }
 .savings-stat:nth-child(3) .ss-num { color: var(--ow-text); }
+.ss-num-free { font-size: clamp(48px, 5.6vw, 66px); line-height: 0.95; }
+.ss-num-free .ss-forever { display: block; font-size: 0.38em; font-weight: 700; letter-spacing: -0.01em; }
 .ss-label {
   font-family: var(--mono-font);
   font-size: 12px;
