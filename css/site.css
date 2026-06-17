@@ -828,9 +828,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   margin: 0;
   line-height: 1.5;
 }
-.outcomes-head { max-width: 760px; margin: 0 0 72px; }
+.outcomes-head { max-width: 760px; margin: 0 auto 72px; text-align: center; }
 .outcomes-head h2 { margin: 16px 0; }
-.outcomes-head p { margin: 0; }
+.outcomes-head p { margin: 0 auto; }
 
 .outcomes-grid {
   display: grid;
@@ -1366,9 +1366,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
    Section: Integration (simplified flow, NOT a 3-col grid)
    ========================================================= */
 .integration { background: var(--ow-white); padding: 120px 0; }
-.integration-head { max-width: 760px; margin: 0 0 64px; }
+.integration-head { max-width: 760px; margin: 0 auto 64px; text-align: center; }
 .integration-head h2 { margin: 16px 0; }
-.integration-head p { margin: 0; }
+.integration-head p { margin: 0 auto; }
 
 .flow-diagram {
   position: relative;
