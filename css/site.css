@@ -1408,19 +1408,19 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
    Top announcement banner
    ========================================================= */
 .top-banner {
-  background: var(--bg-dark-deep);
-  color: var(--hero-fg);
+  background: var(--accent-purple-aa);
+  color: #fff;
   position: relative;
   z-index: 60;
-  border-bottom: 1px solid var(--hero-divider);
 }
 .top-banner-inner {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  padding: 10px 20px;
-  font-size: 13px;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 600;
   font-family: var(--mono-font);
   letter-spacing: 0.04em;
 }
@@ -1428,8 +1428,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  background: var(--accent-green);
-  color: #0A1A0E;
+  background: #fff;
+  color: var(--accent-purple-aa);
   padding: 3px 8px;
   border-radius: 4px;
   font-weight: 700;
@@ -1446,7 +1446,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .top-banner a:hover .arrow { transform: translateX(3px); }
 
 /* Adjust nav position when banner is present — hero padding stays unchanged */
-.has-banner .site-nav { top: 38px; }
+.has-banner .site-nav { top: 56px; }
 
 /* =========================================================
    Bento: device-type breakdown inline
@@ -1891,8 +1891,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .flow-stats { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
-  .top-banner-inner { font-size: 12px; padding: 8px 14px; }
-  .has-banner .site-nav { top: 32px; }
+  .top-banner-inner { font-size: 13px; padding: 12px 14px; }
+  .has-banner .site-nav { top: 58px; }
   .top-banner .tag { font-size: 12px; padding: 2px 6px; }
   .b-card .device-split { grid-template-columns: 1fr; gap: 10px; }
   .algo-grid { grid-template-columns: 1fr; }
