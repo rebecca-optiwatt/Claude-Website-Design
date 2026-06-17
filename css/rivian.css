@@ -3,6 +3,10 @@
    (loads on top of base.css + site.css)
    ============================================================ */
 
+/* Indent the hero + article content from the left edge (keeps them aligned) */
+.pr-hero .container,
+.pr .container { padding-left: clamp(32px, 10vw, 180px); }
+
 .pr-hero h1 {
   font-size: clamp(30px, 4.2vw, 52px);
   line-height: 1.06;
