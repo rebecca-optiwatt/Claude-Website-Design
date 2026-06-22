@@ -15,7 +15,7 @@ _Last updated: 2026-06-22_
 - [ ] **Contact forms → HubSpot** (Utilities + Partners). Integration is **scaffolded** in `js/main.js` (HubSpot Forms API) — runs in demo mode until configured. To go live: fill in `portalId`, `formGuid`, `region`, and confirm `fieldMap` in the `HUBSPOT` config block, then submit a test. (see HubSpot section below)
 - [ ] **Rivian page sign-off** — final Rivian approval on exec names, titles, quotes, and contact emails before it's public
 - [ ] **Confirm permission to name partner utilities** publicly
-- [ ] **Legal pages content** — `privacy.html` and `tos.html` are built in the site design but contain **placeholder copy**. Replace with the official Privacy Policy / Terms of Service text and set the effective date (remove the `.legal-placeholder` callout). Footer links already point to these internal pages (same tab).
+- [x] **Legal pages content** — `privacy.html` (effective Nov 20, 2025) and `tos.html` (effective Mar 10, 2026) now hold the official copy in the site design; footer links point to them (same tab). _Recommend a final legal proofread of the rendered pages before launch._
 - [ ] **Production hosting / DNS / HTTPS confirmed**, and assets deployed at `optiwatt.com/images/` (`og-image.jpg`, `logo-dark.webp`, `beyond-thermostat-dashboard.png`, `beyond-thermostat-front.png`)
 
 ## ⏱ Launch day (Wednesday) — do in order, just before deploy
