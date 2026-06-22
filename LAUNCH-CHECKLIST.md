@@ -29,7 +29,7 @@ _Last updated: 2026-06-22_
 
 ## 🟡 Strongly recommended before launch
 - [ ] **Analytics** (GA4 / Google Tag Manager) installed; conversion tracking on form submits + app-store badge clicks
-- [ ] **Cookie consent banner** (required once analytics/tracking is added; CA/EU privacy)
+- [ ] **Cookie consent banner** — NOW APPLICABLE: the HubSpot tracking script is live and sets cookies (`__hstc`, `hubspotutk`, etc.). Enable a consent banner before launch (HubSpot has a built-in one under Settings → Privacy & Consent → Cookies, or use another CMP), especially for CA/EU visitors.
 - [ ] **"View case studies"** — relabel or build a real page (today it jumps to the stats section)
 - [ ] **Lighthouse / PageSpeed pass**; add `width`/`height` to images to prevent layout shift; consider WebP for the PNG mockups
 - [ ] **Cross-browser + real-device QA** (iOS Safari, Android Chrome, desktop Chrome/Safari/Firefox/Edge)
