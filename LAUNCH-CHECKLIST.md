@@ -12,7 +12,7 @@ _Last updated: 2026-06-22_
 - ⏳ Internal links stay `.html` until launch day, then convert to clean paths
 
 ## 🔴 Blockers — must be done before go-live
-- [ ] **Contact forms → HubSpot** (Utilities + Partners). Integration is **scaffolded** in `js/main.js` (HubSpot Forms API) — runs in demo mode until configured. To go live: fill in `portalId`, `formGuid`, `region`, and confirm `fieldMap` in the `HUBSPOT` config block, then submit a test. (see HubSpot section below)
+- [x] **Contact forms → HubSpot** (Utilities + Partners) — **connected** to HubSpot form `ae6c580b-42c9-44a2-844f-27c3b6160cc1` (portal 8502002, na2). Name split into first/last, Message required, partner-type folded into the message. Payloads verified via dry-run. _Still to do: one live test submission from each page to confirm leads land in HubSpot (and confirm the Message field's internal property name is `message`)._
 - [ ] **Rivian page sign-off** — final Rivian approval on exec names, titles, quotes, and contact emails before it's public
 - [ ] **Confirm permission to name partner utilities** publicly
 - [x] **Legal pages content** — `privacy.html` (effective Nov 20, 2025) and `tos.html` (effective Mar 10, 2026) now hold the official copy in the site design; footer links point to them (same tab). _Recommend a final legal proofread of the rendered pages before launch._
