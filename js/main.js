@@ -32,19 +32,19 @@
 })();
 
 // Contact form -> HubSpot Forms API
-// TODO(launch): fill in the three HUBSPOT values once leadership grants access.
-// Until then the form runs in "demo mode": it shows the confirmation but does
-// NOT send anywhere (a warning is logged to the console). See LAUNCH-CHECKLIST.md.
+// TO CONNECT: set HUBSPOT.portalId + region below, and put each form's GUID in its
+// data-hs-form-guid attribute (index.html = Utilities form, partners.html = Partners form).
+// Until configured, forms run in "demo mode": they show the confirmation but send
+// nothing (a warning is logged to the console). See LAUNCH-CHECKLIST.md.
 (function(){
   var HUBSPOT = {
-    portalId: "HUBSPOT_PORTAL_ID",   // <-- HubSpot Hub/Portal ID, e.g. "1234567"
-    formGuid: "HUBSPOT_FORM_GUID",   // <-- HubSpot form GUID, e.g. "0a1b2c3d-...-...."
+    portalId: "HUBSPOT_PORTAL_ID",   // <-- shared HubSpot Hub/Portal ID, e.g. "1234567"
     region:   "na1",                 // <-- data center: na1 | na2 | eu1
+    // per-form GUID comes from each form's data-hs-form-guid attribute.
     // form field [name] attribute  ->  HubSpot contact property (confirm against your form)
-    fieldMap: { name: "firstname", company: "company", email: "email", message: "message" }
+    fieldMap: { name: "firstname", company: "company", email: "email", message: "message", partner_type: "partner_type" }
   };
-  var configured = HUBSPOT.portalId.indexOf("HUBSPOT_") !== 0 && HUBSPOT.formGuid.indexOf("HUBSPOT_") !== 0;
-
+  function placeholder(v){ return !v || v.indexOf("HUBSPOT_") === 0; }
   function cookie(n){ var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
 
   document.querySelectorAll('form.contact-form').forEach(function(form){
@@ -61,9 +61,11 @@
           : 'Something went wrong. Please email support@optiwatt.com.'; }
       }
 
+      var formGuid = form.getAttribute('data-hs-form-guid');
+
       // Demo mode until HubSpot is configured
-      if (!configured){
-        console.warn('[contact form] HubSpot not configured — set portalId/formGuid in js/main.js. Submission was NOT sent.');
+      if (placeholder(HUBSPOT.portalId) || placeholder(formGuid)){
+        console.warn('[contact form] HubSpot not configured — set HUBSPOT.portalId in js/main.js and data-hs-form-guid on this form. Submission was NOT sent.');
         finish(true);
         return;
       }
@@ -77,7 +79,7 @@
       var hutk = cookie('hubspotutk'); if (hutk) payload.context.hutk = hutk;
 
       var host = HUBSPOT.region.indexOf('eu') === 0 ? 'api-eu1.hsforms.com' : 'api.hsforms.com';
-      var url = 'https://' + host + '/submissions/v3/integration/submit/' + HUBSPOT.portalId + '/' + HUBSPOT.formGuid;
+      var url = 'https://' + host + '/submissions/v3/integration/submit/' + HUBSPOT.portalId + '/' + formGuid;
 
       fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
         .then(function(r){ finish(r.ok); })
