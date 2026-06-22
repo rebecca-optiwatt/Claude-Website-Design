@@ -417,17 +417,21 @@
       <p class="reveal delay-2">Tell us a bit about your company and how you want to integrate. We'll set up a call to learn more and figure out where we can help.</p>
     </div>
 
-    <form class="contact-form reveal delay-1" aria-describedby="form-required-note" data-hs-form-guid="HUBSPOT_FORM_GUID_PARTNERS">
+    <form class="contact-form reveal delay-1" aria-describedby="form-required-note" data-hs-form-guid="ae6c580b-42c9-44a2-844f-27c3b6160cc1">
       <p id="form-required-note" class="form-required-note">Fields marked <span class="req-star" aria-hidden="true">*</span> are required.</p>
       <div class="field-row">
         <div class="field">
-          <label for="cf-name">Name <span class="req-star" aria-hidden="true">*</span></label>
-          <input id="cf-name" name="name" type="text" placeholder="Your full name" required aria-required="true">
+          <label for="cf-firstname">First name <span class="req-star" aria-hidden="true">*</span></label>
+          <input id="cf-firstname" name="firstname" type="text" placeholder="First name" required aria-required="true">
         </div>
         <div class="field">
-          <label for="cf-company">Company <span class="req-star" aria-hidden="true">*</span></label>
-          <input id="cf-company" name="company" type="text" placeholder="Company name" required aria-required="true">
+          <label for="cf-lastname">Last name <span class="req-star" aria-hidden="true">*</span></label>
+          <input id="cf-lastname" name="lastname" type="text" placeholder="Last name" required aria-required="true">
         </div>
+      </div>
+      <div class="field">
+        <label for="cf-company">Company <span class="req-star" aria-hidden="true">*</span></label>
+        <input id="cf-company" name="company" type="text" placeholder="Company name" required aria-required="true">
       </div>
       <div class="field">
         <label for="cf-email">Work email <span class="req-star" aria-hidden="true">*</span></label>
@@ -448,8 +452,8 @@
         </select>
       </div>
       <div class="field">
-        <label for="cf-msg">What are you trying to accomplish?</label>
-        <textarea id="cf-msg" name="message" placeholder="Tell us about your product or services, the kind of integration you're imagining, and any utilities you're already working with."></textarea>
+        <label for="cf-msg">What are you trying to accomplish? <span class="req-star" aria-hidden="true">*</span></label>
+        <textarea id="cf-msg" name="message" placeholder="Tell us about your product or services, the kind of integration you're imagining, and any utilities you're already working with." required aria-required="true"></textarea>
       </div>
       <button type="submit">Start a conversation →</button>
       <p id="form-status" class="sr-only" role="status" aria-live="polite"></p>

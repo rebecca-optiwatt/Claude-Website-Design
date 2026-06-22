@@ -41,8 +41,8 @@
     portalId: "8502002",             // HubSpot Hub/Portal ID
     region:   "na2",                 // data center
     // per-form GUID comes from each form's data-hs-form-guid attribute.
-    // form field [name] attribute  ->  HubSpot contact property (confirm against your form)
-    fieldMap: { name: "firstname", company: "company", email: "email", message: "message", partner_type: "partner_type" }
+    // form field [name] attribute  ->  HubSpot contact property (matches the HubSpot form fields)
+    fieldMap: { firstname: "firstname", lastname: "lastname", company: "company", email: "email", message: "message" }
   };
   function placeholder(v){ return !v || v.indexOf("HUBSPOT_") === 0; }
   function cookie(n){ var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
@@ -71,9 +71,14 @@
       }
 
       var fields = [];
+      // The HubSpot form has no partner-type field, so fold the selection into the message.
+      var pt = form.querySelector('[name="partner_type"]');
+      var ptText = (pt && pt.value) ? ('Partner type: ' + pt.options[pt.selectedIndex].text + '\n\n') : '';
       Object.keys(HUBSPOT.fieldMap).forEach(function(k){
         var el = form.querySelector('[name="' + k + '"]');
-        if (el && el.value) fields.push({ name: HUBSPOT.fieldMap[k], value: el.value });
+        if (!el) return;
+        var val = (k === 'message') ? (ptText + el.value) : el.value;
+        if (val) fields.push({ name: HUBSPOT.fieldMap[k], value: val });
       });
       var payload = { fields: fields, context: { pageUri: location.href, pageName: document.title } };
       var hutk = cookie('hubspotutk'); if (hutk) payload.context.hutk = hutk;
