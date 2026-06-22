@@ -12,7 +12,7 @@ _Last updated: 2026-06-22_
 - ⏳ Internal links stay `.html` until launch day, then convert to clean paths
 
 ## 🔴 Blockers — must be done before go-live
-- [ ] **Contact forms → HubSpot** (Utilities + Partners). Currently mockups that discard submissions. Needs HubSpot Portal ID + Form GUID + region. (see HubSpot section below)
+- [ ] **Contact forms → HubSpot** (Utilities + Partners). Integration is **scaffolded** in `js/main.js` (HubSpot Forms API) — runs in demo mode until configured. To go live: fill in `portalId`, `formGuid`, `region`, and confirm `fieldMap` in the `HUBSPOT` config block, then submit a test. (see HubSpot section below)
 - [ ] **Rivian page sign-off** — final Rivian approval on exec names, titles, quotes, and contact emails before it's public
 - [ ] **Confirm permission to name partner utilities** publicly
 - [ ] **Production hosting / DNS / HTTPS confirmed**, and assets deployed at `optiwatt.com/images/` (`og-image.jpg`, `logo-dark.webp`, `beyond-thermostat-dashboard.png`, `beyond-thermostat-front.png`)
