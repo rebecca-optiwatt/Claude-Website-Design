@@ -38,8 +38,8 @@
 // nothing (a warning is logged to the console). See LAUNCH-CHECKLIST.md.
 (function(){
   var HUBSPOT = {
-    portalId: "HUBSPOT_PORTAL_ID",   // <-- shared HubSpot Hub/Portal ID, e.g. "1234567"
-    region:   "na1",                 // <-- data center: na1 | na2 | eu1
+    portalId: "8502002",             // HubSpot Hub/Portal ID
+    region:   "na2",                 // data center
     // per-form GUID comes from each form's data-hs-form-guid attribute.
     // form field [name] attribute  ->  HubSpot contact property (confirm against your form)
     fieldMap: { name: "firstname", company: "company", email: "email", message: "message", partner_type: "partner_type" }
