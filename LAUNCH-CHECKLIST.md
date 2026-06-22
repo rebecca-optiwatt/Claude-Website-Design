@@ -29,7 +29,7 @@ _Last updated: 2026-06-22_
 
 ## 🟡 Strongly recommended before launch
 - [ ] **Analytics** (GA4 / Google Tag Manager) installed; conversion tracking on form submits + app-store badge clicks
-- [ ] **Cookie consent banner** — NOW APPLICABLE: the HubSpot tracking script is live and sets cookies (`__hstc`, `hubspotutk`, etc.). Enable a consent banner before launch (HubSpot has a built-in one under Settings → Privacy & Consent → Cookies, or use another CMP), especially for CA/EU visitors.
+- [ ] **Cookie consent banner** — DECIDED: use HubSpot's native banner (renders via the tracking script already installed; no code needed). Enable in HubSpot → Settings → Privacy & Consent → Cookies → Create banner. Set EU/UK to opt-in (GDPR), US to notify/opt-out, and point the banner's privacy-policy link to https://optiwatt.com/privacy. Will appear on the live verified domain (may not show on staging). Geo-specific opt-in may require Marketing Hub Pro+.
 - [ ] **"View case studies"** — relabel or build a real page (today it jumps to the stats section)
 - [ ] **Lighthouse / PageSpeed pass**; add `width`/`height` to images to prevent layout shift; consider WebP for the PNG mockups
 - [ ] **Cross-browser + real-device QA** (iOS Safari, Android Chrome, desktop Chrome/Safari/Firefox/Edge)
