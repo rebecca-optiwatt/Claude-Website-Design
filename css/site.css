@@ -2370,8 +2370,9 @@ a.stars { display: inline-block; padding: 15px 4px; margin: -15px -4px; }
     gap: 20px;
   }
   .partner-nav-inner {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   .ecosystem, .partner-section {
     padding: 56px 0;
