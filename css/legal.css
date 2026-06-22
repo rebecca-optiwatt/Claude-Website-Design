@@ -54,6 +54,24 @@
 .legal-content strong { color: var(--ow-text); }
 .legal-content a { color: var(--accent-purple-aa); text-decoration: underline; }
 
+.legal-subtitle { font-size: 17px; color: var(--bg-dark); margin: 0 0 26px; }
+
+/* Tables */
+.legal-table { width: 100%; overflow-x: auto; margin: 0 0 22px; }
+.legal-content table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.legal-content th,
+.legal-content td {
+  border: 1px solid var(--ow-grey-200);
+  padding: 10px 13px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--ow-text-secondary);
+}
+.legal-content th { background: var(--bg-tint); color: var(--bg-dark); font-weight: 700; }
+.legal-content td ul { margin: 6px 0 0; padding-left: 18px; }
+.legal-content td li { margin: 0 0 5px; font-size: 14.5px; }
+
 /* Placeholder callout — remove once real legal copy is in */
 .legal-placeholder {
   margin: 0 0 36px;
