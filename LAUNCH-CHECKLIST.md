@@ -28,8 +28,8 @@ _Last updated: 2026-06-22_
 7. [ ] Verify HTTPS + www/non-www redirect resolves correctly
 
 ## 🟡 Strongly recommended before launch
-- [ ] **Analytics** (GA4 / Google Tag Manager) installed; conversion tracking on form submits + app-store badge clicks
-- [ ] **Cookie consent banner** — DECIDED: use HubSpot's native banner (renders via the tracking script already installed; no code needed). Enable in HubSpot → Settings → Privacy & Consent → Cookies → Create banner. Set EU/UK to opt-in (GDPR), US to notify/opt-out, and point the banner's privacy-policy link to https://optiwatt.com/privacy. Will appear on the live verified domain (may not show on staging). Geo-specific opt-in may require Marketing Hub Pro+.
+- [ ] **Analytics** — OPTIONAL / deferred. Decided not to add visitor tracking for now (keeps the site cookie-banner-free). Lead capture is covered by the HubSpot form connection. Add GA4/GTM later only if you want page/traffic analytics — that would re-trigger the cookie-banner requirement.
+- [x] **Cookie consent banner** — NOT NEEDED. Decided against visitor tracking; the HubSpot tracking script was removed, so the site sets no tracking cookies. (Verified: fresh page load sets no `__hstc`/`hubspotutk`/etc.) Contact forms still submit to HubSpot for lead capture (form submission is user-initiated and disclosed in the Privacy Policy; no banner required). If visitor analytics are added later, revisit this.
 - [ ] **"View case studies"** — relabel or build a real page (today it jumps to the stats section)
 - [ ] **Lighthouse / PageSpeed pass**; add `width`/`height` to images to prevent layout shift; consider WebP for the PNG mockups
 - [ ] **Cross-browser + real-device QA** (iOS Safari, Android Chrome, desktop Chrome/Safari/Firefox/Edge)
