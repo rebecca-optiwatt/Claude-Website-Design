@@ -484,6 +484,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   letter-spacing: 1px;
   line-height: 1;
 }
+/* enlarge tap target for the linked star rating without shifting layout */
+a.stars { display: inline-block; padding: 15px 4px; margin: -15px -4px; }
 .rating-badge .score {
   font-weight: 700;
   font-size: 14px;
@@ -1859,7 +1861,11 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   font-weight: 500;
 }
 .field input,
+.field select,
 .field textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   background: var(--ow-white);
   border: 1px solid var(--ow-grey-300);
   border-radius: 10px;
@@ -1876,6 +1882,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   opacity: 0.7;
 }
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
   outline: none;
   border-color: var(--accent-green-aa);
@@ -1918,7 +1925,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .resiflex-grid { grid-template-columns: 1fr; gap: 56px; }
   .resiflex-preview { min-height: 460px; }
   .int-categories { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   .outcomes-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 24px; }
   .feature-cards { grid-template-columns: 1fr; }
   .support-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2097,10 +2104,13 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   .tile-bignum { font-size: 44px; }
   .device-grid { grid-template-columns: 1fr; }
   .b-card.span-3, .b-card.span-4, .b-card.span-6, .b-card.span-8 { grid-column: span 12; }
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex; width: 44px; height: 44px; }
   .nav-inner { gap: 16px; }
   .site-nav .btn-primary.btn-sm,
-  .site-nav .nav-login { margin-left: auto; }
+  .site-nav .nav-login { margin-left: auto; height: 44px; }
+  /* larger touch targets on mobile (>= 44px) */
+  .footer-col a { min-height: 44px; }
+  .footer-col ul { gap: 4px; }
   #primary-nav {
     position: absolute;
     top: 100%; left: 0; right: 0;
@@ -3215,7 +3225,7 @@ svg.phone-screen {
   max-width: 60ch;
   text-align: center;
   font-family: var(--mono-font);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.06em;
   color: var(--ow-text-secondary);
   line-height: 1.6;
